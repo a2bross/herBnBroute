@@ -1,0 +1,37 @@
+.listed-item {
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #EFEFEF;
+}
+
+.item-picture {
+  max-height: 100px;
+}
+
+.item-details {
+  padding-left: 20px;
+  flex-grow: 1;
+  h3 {
+  font-size: 13px;
+  margin-bottom: 0px;
+  }
+  p {
+  margin-top : 6px;
+  opacity: 0.3;
+  }
+}
+
+.item-price {
+  width: 60px;
+  font-size: 14px;
+  font-weight: bold;
+  opacity: 1;
+}
+
+@media (max-width: 786px) {
+  .listed-item {
+  display:block;
+  }
+}
