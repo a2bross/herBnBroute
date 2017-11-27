@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="row">
+      <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+        <%= image_tag "brebis.jpg", { size: 200 } %>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+      <h1><%= @plot.name %></h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+      <p>Description: <%= @plot.description %></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+      <p>Price: <%= @plot.daily_price %></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+      <%= link_to "Home", plots_path %>
+    </div>
+  </div>
+</div>

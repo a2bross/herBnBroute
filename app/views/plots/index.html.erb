@@ -1,0 +1,19 @@
+<div class="container">
+  <%= link_to "Add a new plot", new_plot_path, { class: 'btn btn-primary'} %>
+  <% @plots.each do |plot| %>
+    <div class="row">
+      <div class="col-xs-12 col-sm-4">
+        <%= image_tag "brebis.jpg", { size: 100 } %>
+      </div>
+      <div class="col-xs-12 col-sm-4">
+        <h2><%= link_to plot.name, plot_path(plot.id) %></h2>
+        <p><%= plot.description %></p>
+      </div>
+      <div class="col-xs-12 col-sm-4">
+        <p>Price:</p>
+        <p><%= plot.daily_price %></p>
+      </div>
+    </div>
+  <% end %>
+  <%= link_to "Home", plots_path %>
+</div>
