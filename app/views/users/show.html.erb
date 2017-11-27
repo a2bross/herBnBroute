@@ -1,19 +1,23 @@
-<div class="show-container">
+<div class="user-details">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-xs-12 col-sm-4 col-sm-push-8">
-        <div class="show-book">
-          <%= @user.first_name %>
+      <div class="col-xs-12 col-md-4 col-md-push-8">
+        <div class="user-info">
+          <%= @user.photo %>
+          <%= @user.first_name %> <%= @user.last_name %>
         </div>
       </div>
-      <div class="col-xs-12 col-sm-8 col-sm-pull-4">
-        <div class="show-name">
-         name
+      <div class="col-xs-12 col-md-8 col-md-pull-4">
+        <div class="plots-list">
+        <div class="plots-header">
+          <h4>My plots</h4>
+          <%= link_to "Add a plot", new_plot_path %>
         </div>
-        <div class="show-info">
-          description
-          map
-          more stuff!
+         <ul>
+            <% @user.plots.each do |plot| %>
+              <%= render 'shared/list-item', item: plot %>
+            <% end %>
+           </ul>
         </div>
       </div>
     </div>
