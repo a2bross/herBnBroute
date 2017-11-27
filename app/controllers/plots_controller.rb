@@ -1,14 +1,12 @@
 class PlotsController < ApplicationController
-
-  # index et show sont temporaires
+  skip_before_action :authenticate_user!, only: [:index, :show]
   def index
     @plots = Plot.all
   end
-  #
+
   def show
     @plot = Plot.find(params[:id])
   end
-  # end temp
 
   def new
     @plot = Plot.new
@@ -29,5 +27,4 @@ class PlotsController < ApplicationController
   def plot_params
     params.require(:plot).permit(:capacity, :name, :description, :location, :daily_price, :photo, :user_id)
   end
-
 end
