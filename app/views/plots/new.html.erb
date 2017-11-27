@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+      <h1>Add a plot</h1>
+      <%= simple_form_for(@plot) do |f| %>
+        <%= f.input :name %>
+        <%= f.input :description %>
+        <%= f.input :location %>
+        <%= f.input :capacity %>
+        <%= f.input :daily_price %>
+        <%= f.submit %>
+      <% end %>
+    </div>
+  </div>
+</div>

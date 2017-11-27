@@ -1,0 +1,17 @@
+.main-container {
+  display: flex;
+}
+
+@media (max-width: 700px) {
+  .main-container {
+    display: block;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: 'Varela Round', sans-serif;
+  font-size: 18px;
+  background: #F4F4F4;
+}
+

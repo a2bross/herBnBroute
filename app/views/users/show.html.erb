@@ -1,0 +1,25 @@
+<div class="user-details">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12 col-md-4 col-md-push-8">
+        <div class="user-info">
+          <%= @user.photo %>
+          <%= @user.first_name %> <%= @user.last_name %>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-8 col-md-pull-4">
+        <div class="plots-list">
+        <div class="plots-header">
+          <h4>My plots</h4>
+          <%= link_to "Add a plot", new_plot_path %>
+        </div>
+         <ul>
+            <% @user.plots.each do |plot| %>
+              <%= render 'shared/list-item', item: plot %>
+            <% end %>
+           </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

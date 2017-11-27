@@ -1,0 +1,52 @@
+.user-details {
+  margin: 30px 10%;
+}
+
+.user-info, .plots-list {
+  background: white;
+  border-radius: 4px;
+  box-shadow: 1px 1px 1px rba(0, 0, 0, 0.1);
+  border: 1px solid rba(0, 0 ,0 , 0.1);
+}
+
+.user-info{
+  padding: 30px 20px;
+}
+
+.plots-header {
+  border-bottom: 1px solid #EFEFEF;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0px;
+  a {
+    background-color: white;
+    color: #555;
+    padding: 5px 15px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    margin-right: 10px;
+    text-transform: 0.5s background-color ease;
+  }
+  a:hover {
+    background-color: #555;
+    color: white;
+    text-decoration: none;
+  }
+  h4 {
+    margin-left: 20px;
+  }
+}
+
+.plots-list {
+  background-color: white;
+  margin-bottom: 30px;
+  ul {
+    list-style: none;
+    margin: 0px;
+    padding-left: 0px;
+    font-size: 13px;
+    color: black;
+  }
+}
+
