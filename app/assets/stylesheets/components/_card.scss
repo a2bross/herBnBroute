@@ -1,0 +1,51 @@
+.cards-container {
+  flex-grow: 1;
+  overflow-y: scroll;
+}
+
+.card{
+  flex: 1 1 auto;
+  margin: 10px 10px;
+  box-shadow: 0.5px 0.5px 0.5px gray;
+  transition: 0.5s;
+  }
+.card-photo {
+  background-size: cover;
+  background-position: center;
+  height: 180px;
+  position: relative;
+}
+.card-text {
+  position: absolute;
+  top: 200px;
+  left: 10px;
+  color: white;
+  font-size: 20px;
+  font-weight: solid;
+}
+
+.card:hover {
+  margin-top: -10px;
+  transition: 0.5s;
+}
+
+.card-name {
+  display: flex;
+  justify-content: space-around;
+  padding: 15px;
+  color: #484848;
+  font-size: 25px;
+  margin: 0px;
+  list-style: none;
+}
+
+.card-description {
+  flex: 0 0 auto;
+  font-size: 15px;
+  color: #484848;
+  list-style: none;
+  margin: 4px 2px;
+}
+
+
+
