@@ -27,6 +27,7 @@ class PlotsController < ApplicationController
   end
 
   def update
+    @plot = Plot.new(plot_params)
     if @plot.save
       redirect_to plot_path(@plot)
     else
