@@ -1,12 +1,13 @@
 <div class="show-container">
   <div class="plot-cover" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= image_path 'default-plot-picture.jpg'%>)">
+    <h1 id="welcome-plot-name">Welcome to <%= @plot.name %></h1>
   </div>
   <div class="plot-details">
     <div class="container-fluid">
       <div class="row">
         <div class="col-xs-12 col-sm-4 col-sm-push-8">
           <div class="plot-book">
-            Book this plot for your sheep!
+            <p>Book this plot for your sheep!</p>
             <div class="linked_pickers">
               <div class="container">
                 <div class='col-md-push-3'>
@@ -19,17 +20,16 @@
                     </div>
                   </div>
                 </div>
-              <div class='col-md-push-3'>
-                <div class="form-group">
-                  <div class='input-group date' id='datetimepicker7'>
-                    <input type='text' class="form-control" placeholder="End date" />
-                    <span class="input-group-addon">
-                      <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-                  </div>
+                <div class='col-md-push-3'>
+                  <div class="form-group">
+                    <div class='input-group date' id='datetimepicker7'>
+                      <input type='text' class="form-control" placeholder="End date" />
+                      <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                      </span>
+                    </div>
                   </div>
                 </div>
-              </div>
                 <script type="text/javascript">
                     $(function () {
                         $('#datetimepicker6').datetimepicker();
@@ -45,16 +45,50 @@
                     });
                 </script>
               </div>
-            <div><%= link_to "Book", "#", class: "btn-primary" %></div>
-
+            </div>
+            <div class="book_button">
+              <%= link_to "Book", "#", class:"button_book" %>
+            </div>
+          </div>
+          <div class="plot-info">
+            <h3>Details</h3>
+            <div class="details-display">
+              <span class="card-description"><%= "#{@plot.daily_price}€ per day" %></span>
+              <div class="icon"><i class="fa fa-paw" aria-hidden="true"></i><p>   <%= @plot.capacity %></p>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="plot-info">
-          description
-          map
-          more stuff!
+        <div class="col-xs-12 col-sm-8 col-sm-pull-4">
+          <div class="plot-location">
+            <h3> Find us at ...</h3>
+            <p><i class="fa fa-map-marker" aria-hidden="true"></i>   <%= @plot.location %></p>
+          </div>
+           <div class="plot-description">
+            <h3> A bit more about this plot ...</h3>
+            <p> <%= @plot.description %></p>
+              <div id="map" class="map-show"></div>
+                <script>
+                  function initMap() {
+                    var uluru = {lat: 48.862725, lng: 2.287592000000018};
+                    var map = new google.maps.Map(document.getElementById('map'), {
+                      zoom: 9,
+                      center: uluru
+                    });
+                    var marker = new google.maps.Marker({
+                    position: uluru,
+                    map: map
+                    });
+                  }
+                </script>
+                <script async defer
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUr5aqT7ZZbHVhE1yjEtlkYt33hh63Axk&callback=initMap">
+              </script>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
+</div>
 </div>
