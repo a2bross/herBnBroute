@@ -5,8 +5,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  validates :first_name, :last_name, :email, :password, presence: true
-  validates :email, uniqueness: true
-  mount_uploader :photo, PhotoUploader
+  validates :first_name, :last_name, presence: true
 
+  after_create :define_photo_number
+
+  def define_photo_number
+    self.photo = rand(1..5)
+    self.save
+  end
 end
