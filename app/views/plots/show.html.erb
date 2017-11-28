@@ -1,23 +1,21 @@
-<div class="main-container">
-  <div class="plot-cover" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= image_path 'default-plot-picture.jpg'%>)">
-  </div>
-  <div class="plot-details">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-xs-12 col-sm-4 col-sm-push-8">
-          <div class="plot-book">
-            Book this plot for your sheep!
-          </div>
+<div class="plot-cover" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= cl_image_path @plot.photo%>)">
+</div>
+<div class="plot-details">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12 col-sm-4 col-sm-push-8">
+        <div class="plot-book">
+          Book this plot for your sheep!
         </div>
-        <div class="col-xs-12 col-sm-8 col-sm-pull-4">
-          <div class="plot-name">
-           name
-          </div>
-          <div class="plot-info">
-            description
-            map
-            more stuff!
-          </div>
+      </div>
+      <div class="col-xs-12 col-sm-8 col-sm-pull-4">
+        <div class="plot-name">
+         name
+        </div>
+        <div class="plot-info">
+          description
+          map
+          more stuff!
         </div>
       </div>
     </div>
