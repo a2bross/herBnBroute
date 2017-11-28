@@ -1,11 +1,28 @@
 <li class="listed-item">
-  <%= image_tag 'default-plot-picture-thumbnail.jpg', class: "item-picture" %>
+  <%= link_to plot_path(item) do %>
+    <% if item.photo.url %>
+      <%= cl_image_tag item.photo, class: "item-picture"  %>
+    <% else %>
+      <%= image_tag 'default-plot-picture-thumbnail.jpg', class: "item-picture" %>
+    <% end %>
+  <% end %>
   <div class="item-details">
-    <h3><%= item.name %></h3>
+    <h3><%= link_to item.name, plot_path(item) %></h3>
     <p><%= item.location %></p>
+    <p>
+      <i class="fa fa-paw" aria-hidden="true"></i> <%= item.capacity %>
+    </p>
+    <p>
+      <%= link_to edit_plot_path(item) do %>
+      Edit <i class="fa fa-pencil" aria-hidden="true"></i>
+      <% end %> | <%= link_to plot_path(item), method: :delete,
+        data: { confirm: "Are you sure?" } do %>
+      Delete <i class="fa fa-trash-o" aria-hidden="true"></i>
+      <% end %>
+    </p>
   </div>
   <div class="item-price">
-    <p><%= item.daily_price %></p>
-    <p><small>per day</small></p>
+    <p><%= item.daily_price %> €</p>
+    <p>per day</p>
   </div>
 </li>
