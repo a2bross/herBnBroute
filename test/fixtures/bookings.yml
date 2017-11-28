@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  plot_id=integer: MyString
+  start_date: 2017-11-28
+  end_date: 2017-11-28
+  full_price: 
+  review_id: 1
+  status: MyString
+
+two:
+  user_id: 1
+  plot_id=integer: MyString
+  start_date: 2017-11-28
+  end_date: 2017-11-28
+  full_price: 
+  review_id: 1
+  status: MyString
