@@ -11,6 +11,10 @@
 
 .user-info{
   padding: 30px 20px;
+  margin-bottom: 20px;
+  p {
+    margin-top: 20px;
+  }
 }
 
 .plots-header {
@@ -20,18 +24,7 @@
   align-items: center;
   padding: 10px 0px;
   a {
-    background-color: white;
-    color: #555;
-    padding: 5px 15px;
-    border: 1px solid #555;
-    border-radius: 5px;
-    margin-right: 10px;
-    text-transform: 0.5s background-color ease;
-  }
-  a:hover {
-    background-color: #555;
-    color: white;
-    text-decoration: none;
+    margin-right: 20px;
   }
   h4 {
     margin-left: 20px;
@@ -50,3 +43,27 @@
   }
 }
 
+.no-plot {
+  padding: 40px 20px 50px;
+  text-align: center;
+  font-size: 18px;
+}
+
+
+@media (max-width: 992px) {
+  .user-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: vertical;
+    p {
+      order: -1;
+    }
+  }
+}
+
+@media (max-width: 786px) {
+  .user-picture {
+    height: 50px;
+    width: 50px;
+  }
+}
