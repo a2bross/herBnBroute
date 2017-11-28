@@ -12,15 +12,22 @@
   <div class="main-container">
       <div class="cards-container">
         <h2>Make your choice !</h2>
+        <div class="container-fluid">
           <div class="row">
             <% @plots.each do |plot| %>
               <div class="col-xs-12 col-sm-6 col-md-4">
                 <div class= "card">
                   <div class="card-body">
                     <%= link_to plot_path(plot) do %>
+                      <% if plot.photo.present? %>
+                      <div class="card-photo" style="background-image: url('<%= cl_image_path plot.photo %>');"></div>
+                      <% else  %>
                       <div class="card-photo" style="background-image: url('<%= image_path 'photo.jpg' %>');"></div>
-                      <div class="card-avatar" style="background-image: url('<%= image_path 'avatar.jpg' %>');"></div>
+                      <% end  %>
                     <% end %>
+                    <%= link_to user_path(plot.user) do %>
+                    <div class="card-avatar" style="background-image: url('<%= image_path 'avatar.jpeg' %>');"></div>
+                    <% end  %>
                     </div>
                     <div class="card-name"><%= link_to "#{plot.name}", plot_path(plot) %></div>
                     <div class="card-footer">
@@ -30,6 +37,7 @@
                 </div>
               </div>
             <% end %>
+            </div>
           </div>
       </div>
 
