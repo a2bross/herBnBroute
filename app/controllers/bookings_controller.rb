@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
+  before_action :set_plot, only: [:new, :create, :destroy]
 
   def index
     @bookings = Booking.all
@@ -12,9 +13,13 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-    @booking.user = current_user
     authorize @booking
+    @booking.plot = @plot
+    @booking.user = current_user
+    duration = params[:end_date] - params[:start_date]
+    @booking.full_price = @plot.daily_price * duration
     if @booking.save
+      @booking.status = "booked"
       redirect_to booking_path(@booking)
     else
       raise
@@ -36,9 +41,8 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-    plot_id = @booking.plot_id
     @booking.destroy
-    redirect_to plot_path(plot_id)
+    redirect_to plot_path(@plot)
   end
 
   private
@@ -50,5 +54,9 @@ class BookingsController < ApplicationController
   def set_booking
     @booking = Booking.find(params[:id])
     authorize @booking
+  end
+
+  def set_plot
+    @plot = Plot.find(params[:plot_id])
   end
 end
