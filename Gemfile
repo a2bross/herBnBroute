@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 ruby '2.3.5'
 
 
-gem 'simple-form-datepicker', '~> 0.1.3'
 gem 'pundit'
 gem 'devise'
 gem 'figaro'

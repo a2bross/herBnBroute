@@ -1,7 +1,9 @@
-
-
 <%= simple_form_for [@plot, @booking] do |f| %>
-  <%= f.input :start_date, :as :datepicker%>
-  <%= f.input :end_date, :as :datepicker%>
-  <%= f.submit class: "btn btn-primary btn-block"%>
+  <p>Pick a start date:</p>
+  <%= f.date_select :start_date %>
+  <hr>
+  <p>Pick an end date</p>
+  <%= f.date_select :end_date %>
+  <hr>
+  <%= f.submit "Graze!", class: "btn btn-primary btn-block"%>
 <% end %>

@@ -14,9 +14,9 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     authorize @booking
-    @booking.plot = @plot
-    @booking.user = current_user
-    duration = params[:end_date] - params[:start_date]
+    @booking.plot_id = @plot.id
+    @booking.user_id = current_user.id
+    duration = params[:end_date] - params[:start_date] + 1
     @booking.full_price = @plot.daily_price * duration
     if @booking.save
       @booking.status = "booked"
@@ -48,7 +48,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:user_id, :plot:id, :start_date, :end_date, :full_price, :review_id, :status)
+    params.require(:booking).permit(:user_id, :plot_id, :start_date, :end_date, :full_price, :review_id, :status)
   end
 
   def set_booking
