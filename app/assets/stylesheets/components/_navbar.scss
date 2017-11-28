@@ -8,11 +8,23 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  a:hover {
+    text-decoration: none;
+  }
 }
 
 /* Logo */
 .navbar-wagon-brand img {
   height: 50px;
+}
+
+.navbar-title {
+  font-family: "Concert One", "Raleway", sans-serif;
+  color: #green;
+  padding-left: 10px;
+  span {
+    color: $gray;
+  }
 }
 
 /* User Avatar */
@@ -31,7 +43,6 @@
 
 /* Basic navbar item */
 .navbar-wagon-item {
-  cursor: pointer;
   padding: 0 20px;
 }
 
@@ -41,7 +52,7 @@
   font-size: 14px;
 }
 .navbar-wagon-link:hover {
-  color: #259F6C;
+  color: #5F8F30;
   text-decoration: none;
 }
 

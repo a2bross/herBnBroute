@@ -41,6 +41,9 @@
     font-size: 13px;
     color: black;
   }
+  a:hover {
+    text-decoration: none;
+  }
 }
 
 .no-plot {
@@ -65,5 +68,8 @@
   .user-picture {
     height: 50px;
     width: 50px;
+  }
+  .plots-header {
+    display: flex;
   }
 }
