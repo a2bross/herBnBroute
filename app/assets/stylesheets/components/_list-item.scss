@@ -14,7 +14,7 @@
   padding-left: 20px;
   flex-grow: 1;
   h3 {
-  font-size: 13px;
+  font-size: 18px;
   margin-bottom: 0px;
   }
   p {
@@ -26,8 +26,12 @@
 .item-price {
   width: 60px;
   font-size: 14px;
-  font-weight: bold;
   opacity: 1;
+  text-align:left;
+  p:first-child {
+    font-size: 20px;
+    font-weight: bold;
+  }
 }
 
 @media (max-width: 786px) {

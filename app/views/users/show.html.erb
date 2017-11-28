@@ -2,16 +2,20 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-xs-12 col-md-4 col-md-push-8">
-        <div class="user-info">
-          <%= @user.photo %>
-          <%= @user.first_name %> <%= @user.last_name %>
+        <div class="user-info text-center">
+          <%if @user.photo.url %>
+            <%= cl_image_tag @user.photo, width: 150, height: 150, crop: :thumb %>
+          <% else %>
+            <%= image_tag "default-user.jpg", alt: "default-user", class: "user-picture" %>
+          <% end %>
+          <p><%= @user.first_name %> <%= @user.last_name %></p>
         </div>
       </div>
       <div class="col-xs-12 col-md-8 col-md-pull-4">
         <div class="plots-list">
         <div class="plots-header">
           <h4>My plots</h4>
-          <%= link_to "Add a plot", new_plot_path %>
+          <%= link_to "Add a plot", new_plot_path, class: "btn btn-primary" %>
         </div>
          <ul>
             <% @user.plots.each do |plot| %>
