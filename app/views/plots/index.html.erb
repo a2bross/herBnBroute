@@ -11,7 +11,7 @@
 <body>
   <div class="main-container">
       <div class="cards-container">
-        <h2>Make your choice !</h2>
+       <h2>Make your choice !</h2>
         <div class="container-fluid">
           <div class="row">
             <% @plots.each do |plot| %>
@@ -20,25 +20,29 @@
                   <div class="card-body">
                     <%= link_to plot_path(plot) do %>
                       <% if plot.photo.present? %>
-                      <div class="card-photo" style="background-image: url('<%= cl_image_path plot.photo %>');"></div>
+                        <div class="card-photo" style="background-image: url('<%= cl_image_path plot.photo %>');"></div>
                       <% else  %>
-                      <div class="card-photo" style="background-image: url('<%= image_path 'photo.jpg' %>');"></div>
+                        <div class="card-photo" style="background-image: url('<%= image_path 'photo.jpg' %>');"></div>
                       <% end  %>
                     <% end %>
                     <%= link_to user_path(plot.user) do %>
-                    <div class="card-avatar" style="background-image: url('<%= image_path 'avatar.jpeg' %>');"></div>
-                    <% end  %>
-                    </div>
+                      <% if plot.user.photo.present? %>
+                        <div class="card-avatar" style="background-image: url('<%= image_path "avatar_#{plot.user.photo}.jpg" %>');"></div>
+                      <% else %>
+                        <div class="card-avatar" style="background-image: url('<%= image_path 'avatar.jpeg' %>');"></div>
+                      <% end %>
+                    <% end %>
+                  </div>
                     <div class="card-name"><%= link_to "#{plot.name}", plot_path(plot) %></div>
                     <div class="card-footer">
                       <div class="card-description"><%= "#{plot.daily_price}€ per day" %></div>
-                       <div class="icon"><i class="fa fa-paw" aria-hidden="true"></i> <%= "#{plot.capacity}" %></div>
-                  </div>
+                      <div class="icon"><i class="fa fa-paw" aria-hidden="true"></i> <%= "#{plot.capacity}" %></div>
+                    </div>
                 </div>
               </div>
             <% end %>
-            </div>
           </div>
+        </div>
       </div>
 
    <div id="map"></div>
