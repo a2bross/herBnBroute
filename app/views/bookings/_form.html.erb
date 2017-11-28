@@ -1,10 +1,7 @@
+
+
 <%= simple_form_for(@plot) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.input :location %>
-  <%= f.input :capacity %>
-  <%= f.input :daily_price %>
-  <%= f.input :photo %>
-  <%= f.input :photo_cache, as: :hidden %>
+  <%= f.input :start_date, :as :datepicker%>
+  <%= f.input :end_date, :as :datepicker%>
   <%= f.submit class: "btn btn-primary btn-block"%>
 <% end %>
