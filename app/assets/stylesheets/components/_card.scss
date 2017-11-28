@@ -1,13 +1,16 @@
 .cards-container {
   flex-grow: 1;
   overflow-y: scroll;
+  margin: 15px;
 }
 
 .card{
   flex: 1 1 auto;
-  margin: 10px 10px;
+  margin: 10px 30px;
   box-shadow: 0.5px 0.5px 0.5px gray;
   transition: 0.5s;
+  width: 300px;
+  background-color: white;
   }
 .card-photo {
   background-size: cover;
@@ -21,30 +24,39 @@
   left: 10px;
   color: white;
   font-size: 20px;
-  font-weight: solid;
 }
-
 .card:hover {
-  margin-top: -10px;
-  transition: 0.5s;
+  opacity: 0.7;
 }
-
-.card-name {
+.card-footer {
   display: flex;
   justify-content: space-around;
+  padding: 5px;
+}
+.card-name {
   padding: 15px;
-  color: #484848;
+  text-align: center;
   font-size: 25px;
   margin: 0px;
   list-style: none;
 }
-
+.card-name a {
+  color: #484848;
+  font-weight: 700;
+  text-decoration: none;
+}
 .card-description {
   flex: 0 0 auto;
   font-size: 15px;
-  color: #484848;
   list-style: none;
-  margin: 4px 2px;
+  font-weight: 150;
+  color: #484848;
+  margin-left: 10px;
+}
+.icon {
+  margin-left: 10px;
+  font-weight: 100;
+  font-size: 15px;
 }
 
 

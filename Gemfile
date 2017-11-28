@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.3.5'
 
+gem 'pundit'
 gem 'devise'
 gem 'figaro'
 gem 'jbuilder', '~> 2.0'
@@ -18,6 +19,7 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'faker'
 gem 'cloudinary'
+gem 'carrierwave', '~> 1.2'
 
 group :development, :test do
   gem 'pry-byebug'
