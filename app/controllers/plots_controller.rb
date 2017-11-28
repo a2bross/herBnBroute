@@ -7,7 +7,6 @@ class PlotsController < ApplicationController
   end
 
   def show
-    @plot.remote_photo_url = '../assets/images/default-plot-picture.jpg' unless @plot.photo.url
   end
 
   def new
