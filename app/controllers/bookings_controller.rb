@@ -16,11 +16,11 @@ class BookingsController < ApplicationController
     authorize @booking
     @booking.plot_id = @plot.id
     @booking.user_id = current_user.id
-    duration = params[:end_date] - params[:start_date] + 1
-    @booking.full_price = @plot.daily_price * duration
+    duration = Date.parse(params[:booking][:end_date]) - Date.parse(params[:booking][:start_date]) + 1
+    @booking.full_price = @plot.daily_price * duration.to_i
     if @booking.save
       @booking.status = "booked"
-      redirect_to booking_path(@booking)
+      redirect_to plot_booking_path(@plot.id, @booking.id)
     else
       raise
     end
