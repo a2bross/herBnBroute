@@ -1,16 +1,53 @@
-<div class="plot-cover" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= cl_image_path @plot.photo%>)">
-</div>
-<div class="plot-details">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-xs-12 col-sm-4 col-sm-push-8">
-        <div class="plot-book">
-          Book this plot for your sheep!
-        </div>
-      </div>
-      <div class="col-xs-12 col-sm-8 col-sm-pull-4">
-        <div class="plot-name">
-         name
+<div class="show-container">
+  <div class="plot-cover" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= image_path 'default-plot-picture.jpg'%>)">
+  </div>
+  <div class="plot-details">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-12 col-sm-4 col-sm-push-8">
+          <div class="plot-book">
+            Book this plot for your sheep!
+            <div class="linked_pickers">
+              <div class="container">
+                <div class='col-md-push-3'>
+                  <div class="form-group">
+                    <div class='input-group date' id='datetimepicker6'>
+                      <input type='text' class="form-control" placeholder="Start date" />
+                      <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              <div class='col-md-push-3'>
+                <div class="form-group">
+                  <div class='input-group date' id='datetimepicker7'>
+                    <input type='text' class="form-control" placeholder="End date" />
+                    <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                  </div>
+                  </div>
+                </div>
+              </div>
+                <script type="text/javascript">
+                    $(function () {
+                        $('#datetimepicker6').datetimepicker();
+                        $('#datetimepicker7').datetimepicker({
+                            useCurrent: false //Important! See issue #1075
+                        });
+                        $("#datetimepicker6").on("dp.change", function (e) {
+                            $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+                        });
+                        $("#datetimepicker7").on("dp.change", function (e) {
+                            $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+                        });
+                    });
+                </script>
+              </div>
+            <div><%= link_to "Book", "#", class: "btn-primary" %></div>
+
+          </div>
         </div>
         <div class="plot-info">
           description
