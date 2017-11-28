@@ -1,31 +1,24 @@
+body {
+  background-color: white;
+}
 .show-container {
   background-color: white;
+  height: 100vh;
 }
 
 .plot-cover {
+  display: flex;
   height: 50vh;
   background-size: cover !important;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
+  background-position: center;
+  color: white;
+  text-align: center;
 }
 
-.plot-book {
-  background-color: rgb(240, 240, 240);
-  padding: 10px;
-  bottom: 10px;
-  left: 10px;
-  border-radius: 4px;
-  padding: 10px;
-}
-
-.plot-name {
-  background-color: rgb(240, 240, 240);
-  height : 100px;
-  border-radius: 4px;
-  margin-bottom: 10px;
-}
 
 .plot-details {
   margin-top: -50px;
@@ -33,7 +26,52 @@
   margin-left: 10%;
 }
 
+.icon {
+  display: flex;
+}
+
+.details-display {
+  display: flex;
+}
+
+.plot-book {
+  align-items: center;
+  background-color: rgb(240, 240, 240);
+  padding: 10px;
+  bottom: 10px;
+  left: 10px;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.book_button {
+  display: flex;
+  align-items: center;
+}
+
+.button_book {
+  text-align: center;
+  background-color: green;
+
+}
+
 .plot-info {
+  background-color: rgb(240, 240, 240);
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.plot-location {
+  background-color: rgb(240, 240, 240);
+  border-radius: 4px;
+  height : 100px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.plot-description {
   background-color: rgb(240, 240, 240);
   padding: 30px 20px; // à supprimer
   margin-bottom: 30px; // à supprimer
@@ -41,11 +79,20 @@
 }
 
 .linked_pickers {
-  display:flex;
-
+  display: flex;
 }
 
-.btn-primary {
-  padding: 10px, 20px;
-  text-align: center;
+h3 {
+  margin-top: 0px;
+  font-size: 28px;
 }
+
+.map-show {
+  border: solid 2px white;
+}
+
+.input-group.date .input-group-addon {
+    cursor: pointer;
+}
+
+

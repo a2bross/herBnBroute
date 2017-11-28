@@ -38,8 +38,9 @@ class PlotsController < ApplicationController
   end
 
   def destroy
+    @user = @plot.user
     @plot.destroy
-    redirect_to user_path
+    redirect_to user_path(@user)
   end
 
   private
