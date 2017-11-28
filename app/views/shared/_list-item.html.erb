@@ -1,10 +1,6 @@
 <li class="listed-item">
-  <%= link_to edit_plot_path(item) do %>
-    <% if item.photo.url %>
-      <%= cl_image_tag @item.photo, class: "item-picture"  %>
-    <% else %>
-      <%= image_tag 'default-plot-picture-thumbnail.jpg', class: "item-picture" %>
-    <% end %>
+  <%= link_to plot_path(item) do %>
+   <%= cl_image_tag item.photo, class: "item-picture"  %>
   <% end %>
   <div class="item-details">
     <h3><%= link_to item.name, plot_path(item) %></h3>

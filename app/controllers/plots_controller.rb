@@ -15,6 +15,7 @@ class PlotsController < ApplicationController
   def create
     @plot = Plot.new(plot_params)
     @plot.user = current_user
+    @plot.photo = File.open('../assets/default-plot-picture.jpg') unless @plot.phot
     if @plot.save
       redirect_to plot_path(@plot)
     else
