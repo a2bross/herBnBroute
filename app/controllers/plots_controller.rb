@@ -28,7 +28,7 @@ class PlotsController < ApplicationController
 
   def update
     @plot = Plot.new(plot_params)
-    if @plot.update
+    if @plot.update(plot_params)
       redirect_to plot_path(@plot)
     else
       raise
