@@ -6,12 +6,12 @@
 
 .card{
   flex: 1 1 auto;
-  margin: 10px 30px;
   box-shadow: 0.5px 0.5px 0.5px gray;
   transition: 0.5s;
-  width: 300px;
   background-color: white;
+  margin-bottom: 20px;
   }
+
 .card-photo {
   background-size: cover;
   background-position: center;
