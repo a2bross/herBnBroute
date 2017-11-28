@@ -1,50 +1,57 @@
 <head>
-
+ <div class="card">
   <style>
     #map {
-    height: 400px;
     width: 100%;
        }
-  </style>
+     </style>
+ </div>
 </head>
 
 <body>
-  <h1>Welcome to herBnbroute !</h1>
-  <h2>Choose your plot</h2>
-
   <div class="main-container">
-    <div class="cards-container">
-      <div class="row">
-        <% @plots.each do |plot| %>
-          <div class="col-xs-12 col-sm-6 col-md-4">
-            <div class= "card">
-             <div class="card-photo" style="background-image: url('<%= image_path 'photo.jpg' %>');"></div>
-                <div class="card-name"><%= link_to "#{plot.name}", plot_path(plot) %></div>
-              <li class="card-description"><%= link_to "#{plot.daily_price}€ per day" %></li>
-            </div>
+      <div class="cards-container">
+        <h2>Make your choice !</h2>
+          <div class="row">
+            <% @plots.each do |plot| %>
+              <div class="col-xs-12 col-sm-6 col-md-4">
+                <div class= "card">
+                  <div class="card-body">
+                    <%= link_to plot_path(plot) do %>
+                      <div class="card-photo" style="background-image: url('<%= image_path 'photo.jpg' %>');"></div>
+                      <div class="card-avatar" style="background-image: url('<%= image_path 'avatar.jpg' %>');"></div>
+                    <% end %>
+                    </div>
+                    <div class="card-name"><%= link_to "#{plot.name}", plot_path(plot) %></div>
+                    <div class="card-footer">
+                      <div class="card-description"><%= "#{plot.daily_price}€ per day" %></div>
+                       <div class="icon"><i class="fa fa-paw" aria-hidden="true"></i> <%= "#{plot.capacity}" %></div>
+                  </div>
+                </div>
+              </div>
+            <% end %>
           </div>
-        <% end %>
       </div>
-    </div>
-    <div id="map"></div>
+
+   <div id="map"></div>
+      <script>
+        function initMap() {
+          var uluru = {lat: 48.862725, lng: 2.287592000000018};
+          var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 5,
+            center: uluru
+          });
+          var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+          });
+        }
+      </script>
+      <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUr5aqT7ZZbHVhE1yjEtlkYt33hh63Axk&callback=initMap">
+      </script>
+
   </div>
-
-  <!-- Google map scripts -->
-  <script>
-    function initMap() {
-      var uluru = {lat: 48.862725, lng: 2.287592000000018};
-      var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 4,
-        center: uluru
-      });
-      var marker = new google.maps.Marker({
-        position: uluru,
-        map: map
-      });
-    }
-  </script>
-  <script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUr5aqT7ZZbHVhE1yjEtlkYt33hh63Axk&callback=initMap">
-  </script>
-
 </body>
+
+
