@@ -10,9 +10,9 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "Host", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Trips", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Add a plot", new_plot_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Plots", plots_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Sign out", destroy_user_session_path, class: "navbar-wagon-item navbar-wagon-link", method: :delete %>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
