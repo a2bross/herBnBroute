@@ -51,10 +51,24 @@
             </div>
           </div>
           <div class="plot-info">
+              <div>
+                <% if @plot.user.photo %>
+                  <%= image_tag @plot.user.photo, class:"avatar-show"%>
+                <% else %>
+                  <%= image_tag "default-user.jpg", class:"avatar-show" %>
+                <% end %>
+              </div>
             <h3>Details</h3>
-            <div class="details-display">
-              <span class="card-description"><%= "#{@plot.daily_price}€ per day" %></span>
-              <div class="icon"><i class="fa fa-paw" aria-hidden="true"></i><p>   <%= @plot.capacity %></p>
+            <div class="details-display flex-between">
+              <div class="flex-between", id="details-figures">
+                <span class="card-description"><%= "#{@plot.daily_price}€ per day" %></span>
+                <div class="flex-between" >
+                  <i class="fa fa-paw" aria-hidden="true"></i>
+                  <p>  <%= @plot.capacity %></p>
+                </div>
+              </div>
+              <div>
+                <%= @plot.user.first_name %>
               </div>
             </div>
           </div>
