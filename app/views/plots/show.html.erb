@@ -17,7 +17,7 @@
           <div class="plot-info">
               <div>
                 <% if @plot.user.photo %>
-                  <%= image_tag "avatar_#{@plot.user.photo}", class:"avatar-show"%>
+                  <%= image_tag "avatar_#{@plot.user.photo}.jpg", class:"avatar-show"%>
                 <% else %>
                   <%= image_tag "default-user.jpg", class:"avatar-show" %>
                 <% end %>
