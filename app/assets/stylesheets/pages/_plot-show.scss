@@ -15,6 +15,39 @@
   text-align: center;
 }
 
+.edit-plot-show a {
+  position: absolute;
+  background-color: #346E23;
+  color: white;
+  text-decoration: none;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  width: 70px;
+  right: 30px;
+  top: 30px;
+  padding: 10px, 20px;
+}
+
+.edit-plot-show a:hover {
+  background-color: green;
+}
+
+.delete-plot-show a {
+  position: absolute;
+  background-color: #346E23;
+  color: white;
+  text-decoration: none;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  width: 70px;
+  right: 110px;
+  top: 30px;
+  padding: 10px, 20px;
+}
+
+.delete-plot-show a:hover {
+  background-color: red;
+}
 
 .plot-details {
   margin-top: -50px;
@@ -32,18 +65,20 @@
   display: flex;
   justify-content: space-between;
   position: relative;
+  margin-right: 7px;
 }
 
 .avatar-show {
   border-radius: 50%;
   height: 50px;
+  width: 50px;
   position: absolute;
-  right: 40px;
+  right: 30px;
 }
 
 .plot-book {
   align-items: center;
-  background-color: rgb(240, 240, 240);
+  background-color: rgb(230, 230, 230);
   padding: 10px;
   bottom: 10px;
   left: 10px;
@@ -64,14 +99,14 @@
 }
 
 .plot-info {
-  background-color: rgb(240, 240, 240);
+  background-color: rgb(230, 230, 230);
   border-radius: 4px;
   padding: 10px;
   margin-bottom: 10px;
 }
 
 .plot-location {
-  background-color: rgb(240, 240, 240);
+  background-color: rgb(230, 230, 230);
   border-radius: 4px;
   height : 100px;
   padding: 10px;
@@ -79,7 +114,7 @@
 }
 
 .plot-description {
-  background-color: rgb(240, 240, 240);
+  background-color: rgb(230, 230, 230);
   padding: 30px 20px; // à supprimer
   margin-bottom: 30px; // à supprimer
   border-radius: 4px;
@@ -104,6 +139,7 @@
 }
 .details-display p {
   margin: 0px;
+  font-height: 10px;
 }
 
 #details-figures {
