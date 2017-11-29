@@ -45,23 +45,9 @@
            <div class="plot-description">
             <h3> A bit more about this plot ...</h3>
             <p> <%= @plot.description %></p>
-              <div id="map" class="map-show"></div>
-                <script>
-                  function initMap() {
-                    var uluru = {lat: 48.862725, lng: 2.287592000000018};
-                    var map = new google.maps.Map(document.getElementById('map'), {
-                      zoom: 9,
-                      center: uluru
-                    });
-                    var marker = new google.maps.Marker({
-                    position: uluru,
-                    map: map
-                    });
-                  }
-                </script>
-                <script async defer
-                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUr5aqT7ZZbHVhE1yjEtlkYt33hh63Axk&callback=initMap">
-              </script>
+            <div id="map"
+              data-markers="<%= [{lat: @plot.latitude, lng: @plot.longitude}].to_json %>"
+              class="map-show"></div>
             </div>
           </div>
         </div>
