@@ -16,8 +16,8 @@
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
-        <% if current_user.photo.url %>
-         <%= cl_image_tag current_user.photo, class: "avatar", id: "navbar-wagon-menu" %>
+        <% if current_user.photo %>
+         <%= image_path "avatar_#{plot.user.photo}.jpg", class: "avatar", id: "navbar-wagon-menu" %>
         <% else %>
           <%= image_tag "default-user.jpg", class: "avatar", id: "navbar-wagon-menu" %>
         <% end %></%>

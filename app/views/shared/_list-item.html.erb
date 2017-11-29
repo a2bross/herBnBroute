@@ -1,6 +1,6 @@
 <li class="listed-item">
   <%= link_to plot_path(item) do %>
-    <% if item.photo.url %>
+    <% if item.photo.present? %>
       <div class="item-picture" style="background-image: url('<%= cl_image_path item.photo %>')"></div>
     <% else %>
       <div class="item-picture" style="background-image: url('<%= image_path "default-plot-picture-thumbnail.jpg" %>')"></div>
