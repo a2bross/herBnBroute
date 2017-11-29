@@ -1,0 +1,5 @@
+<%= simple_form_for [plot, booking] do |f| %>
+  <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+  <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+  <%= f.submit "Graze!", class: "btn btn-primary btn-block"%>
+<% end %>
