@@ -39,6 +39,10 @@
   font-size: 25px;
   margin: 0px;
   list-style: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
 }
 .card-name a {
   color: #484848;
