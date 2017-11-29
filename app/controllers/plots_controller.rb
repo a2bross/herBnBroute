@@ -38,7 +38,7 @@ class PlotsController < ApplicationController
     if @plot.save
       redirect_to plot_path(@plot)
     else
-      raise
+      render :new
     end
   end
 
@@ -49,7 +49,7 @@ class PlotsController < ApplicationController
     if @plot.update(plot_params)
       redirect_to plot_path(@plot)
     else
-      raise
+      render :edit
     end
   end
 
