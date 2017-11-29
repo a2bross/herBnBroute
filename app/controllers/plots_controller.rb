@@ -18,10 +18,6 @@ class PlotsController < ApplicationController
     end
   end
 
-
-
-
-
   def show
     @booking = Booking.new
   end
