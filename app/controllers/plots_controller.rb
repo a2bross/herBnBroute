@@ -3,8 +3,20 @@ class PlotsController < ApplicationController
   before_action :set_plot, only: [:show, :edit, :update, :destroy]
 
   def index
-    @plots = Plot.all
+    @plots = Plot.where.not(latitude: nil, longitude: nil)
+
+    @markers = @plots.map do |plot|
+      {
+        lat: plot.latitude,
+        lng: plot.longitude#,
+        # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+      }
+    end
   end
+
+
+
+
 
   def show
   end

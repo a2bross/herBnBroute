@@ -1,69 +1,40 @@
-<head>
- <div class="card">
-  <style>
-    #map {
-    width: 100%;
-       }
-     </style>
- </div>
-</head>
-
-<body>
-  <div class="main-container">
-      <div class="cards-container">
-       <h2>Make your choice !</h2>
-        <div class="container-fluid">
-          <div class="row">
-            <% @plots.each do |plot| %>
-              <div class="col-xs-12 col-sm-6 col-md-4">
-                <div class= "card">
-                  <div class="card-body">
-                    <%= link_to plot_path(plot) do %>
-                      <% if plot.photo.present? %>
-                        <div class="card-photo" style="background-image: url('<%= cl_image_path plot.photo %>');"></div>
-                      <% else  %>
-                        <div class="card-photo" style="background-image: url('<%= image_path 'photo.jpg' %>');"></div>
-                      <% end  %>
+<div class="index-container">
+    <div class="cards-container">
+     <h2>Make your choice !</h2>
+      <div class="container-fluid">
+        <div class="row">
+          <% @plots.each do |plot| %>
+            <div class="col-xs-12 col-sm-6 col-md-4">
+              <div class= "card">
+                <div class="card-body">
+                  <%= link_to plot_path(plot) do %>
+                    <% if plot.photo.present? %>
+                      <div class="card-photo" style="background-image: url('<%= cl_image_path plot.photo %>');"></div>
+                    <% else  %>
+                      <div class="card-photo" style="background-image: url('<%= image_path 'photo.jpg' %>');"></div>
+                    <% end  %>
+                  <% end %>
+                  <%= link_to user_path(plot.user) do %>
+                    <% if plot.user.photo.present? %>
+                      <div class="card-avatar" style="background-image: url('<%= image_path "avatar_#{plot.user.photo}.jpg" %>');"></div>
+                    <% else %>
+                      <div class="card-avatar" style="background-image: url('<%= image_path 'avatar.jpeg' %>');"></div>
                     <% end %>
-                    <%= link_to user_path(plot.user) do %>
-                      <% if plot.user.photo.present? %>
-                        <div class="card-avatar" style="background-image: url('<%= image_path "avatar_#{plot.user.photo}.jpg" %>');"></div>
-                      <% else %>
-                        <div class="card-avatar" style="background-image: url('<%= image_path 'avatar.jpeg' %>');"></div>
-                      <% end %>
-                    <% end %>
-                  </div>
-                    <div class="card-name"><%= link_to "#{plot.name}", plot_path(plot) %></div>
-                    <div class="card-footer">
-                      <div class="card-description"><%= "#{plot.daily_price}€ per day" %></div>
-                      <div class="icon"><i class="fa fa-paw" aria-hidden="true"></i> <%= "#{plot.capacity}" %></div>
-                    </div>
+                  <% end %>
                 </div>
+                  <div class="card-name"><%= link_to "#{plot.name}", plot_path(plot) %></div>
+                  <div class="card-footer">
+                    <div class="card-description"><%= "#{plot.daily_price}€ per day" %></div>
+                    <div class="icon"><i class="fa fa-paw" aria-hidden="true"></i> <%= "#{plot.capacity}" %></div>
+                  </div>
               </div>
-            <% end %>
-          </div>
+            </div>
+          <% end %>
         </div>
       </div>
+    </div>
 
-   <div id="map"></div>
-      <script>
-        function initMap() {
-          var uluru = {lat: 48.862725, lng: 2.287592000000018};
-          var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 5,
-            center: uluru
-          });
-          var marker = new google.maps.Marker({
-          position: uluru,
-          map: map
-          });
-        }
-      </script>
-      <script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUr5aqT7ZZbHVhE1yjEtlkYt33hh63Axk&callback=initMap">
-      </script>
-
-  </div>
-</body>
-
-
+ <div id="map"
+  data-markers="<%= @markers.to_json %>"
+  ></div>
+</div>
