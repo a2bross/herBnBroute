@@ -3,10 +3,27 @@ class PlotsController < ApplicationController
   before_action :set_plot, only: [:show, :edit, :update, :destroy]
 
   def index
-    @plots = Plot.all
+    @nearby_plots = Plot.near(params[:location], 10)
+    if params[:location] && @nearby_plots.first
+      @plots = @nearby_plots
+    else
+      @plots = Plot.where.not(latitude: nil, longitude: nil)
+    end
+    @markers = @plots.map do |plot|
+      {
+        lat: plot.latitude,
+        lng: plot.longitude#,
+        # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+      }
+    end
   end
 
+
+
+
+
   def show
+    @booking = Booking.new
   end
 
   def new

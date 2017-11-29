@@ -1,10 +1,15 @@
 .button {
-  padding: 20px;
+  padding: 10px 40px;
   background-color: #5F8F30;
   border: 0px;
-  border-radius: 20px;
-  font-size: 25px;
+  border-radius: 10px;
+  font-size: 20px;
+  margin-top: 20px;
+}
 
+.button a {
+  color: white;
+  text-decoration: none;
 }
 
 .button:hover {
@@ -12,3 +17,4 @@
   opacity: 0.8;
   border: 0px;
 }
+

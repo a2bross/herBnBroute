@@ -4,3 +4,5 @@ class UsersController < ApplicationController
     authorize @user
   end
 end
+
+# fix for agathe

@@ -10,51 +10,29 @@
             <p>Book this plot for your sheep!</p>
             <div class="linked_pickers">
               <div class="container">
-                <div class='col-md-push-3'>
-                  <div class="form-group">
-                    <div class='input-group date' id='datetimepicker6'>
-                      <input type='text' class="form-control" placeholder="Start date" />
-                      <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div class='col-md-push-3'>
-                  <div class="form-group">
-                    <div class='input-group date' id='datetimepicker7'>
-                      <input type='text' class="form-control" placeholder="End date" />
-                      <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <script type="text/javascript">
-                    $(function () {
-                        $('#datetimepicker6').datetimepicker();
-                        $('#datetimepicker7').datetimepicker({
-                            useCurrent: false //Important! See issue #1075
-                        });
-                        $("#datetimepicker6").on("dp.change", function (e) {
-                            $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
-                        });
-                        $("#datetimepicker7").on("dp.change", function (e) {
-                            $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
-                        });
-                    });
-                </script>
+                <%= render 'flatpickr', plot: @plot, booking: @booking %>
               </div>
-            </div>
-            <div class="book_button">
-              <%= link_to "Book", "#", class:"button_book" %>
             </div>
           </div>
           <div class="plot-info">
+              <div>
+                <% if @plot.user.photo %>
+                  <%= image_tag "avatar_#{@plot.user.photo}", class:"avatar-show"%>
+                <% else %>
+                  <%= image_tag "default-user.jpg", class:"avatar-show" %>
+                <% end %>
+              </div>
             <h3>Details</h3>
-            <div class="details-display">
-              <span class="card-description"><%= "#{@plot.daily_price}€ per day" %></span>
-              <div class="icon"><i class="fa fa-paw" aria-hidden="true"></i><p>   <%= @plot.capacity %></p>
+            <div class="details-display flex-between">
+              <div class="flex-between", id="details-figures">
+                <span class="card-description"><%= "#{@plot.daily_price}€ per day" %></span>
+                <div class="flex-between" >
+                  <i class="fa fa-paw" aria-hidden="true"></i>
+                  <p>  <%= @plot.capacity %></p>
+                </div>
+              </div>
+              <div>
+                <%= @plot.user.first_name %>
               </div>
             </div>
           </div>

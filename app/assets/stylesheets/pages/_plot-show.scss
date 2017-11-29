@@ -7,7 +7,6 @@
   display: flex;
   height: 50vh;
   background-size: cover !important;
-  display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
@@ -23,12 +22,23 @@
   margin-left: 10%;
 }
 
-.icon {
+.flex-between {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .details-display {
   display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.avatar-show {
+  border-radius: 50%;
+  height: 50px;
+  position: absolute;
+  right: 40px;
 }
 
 .plot-book {
@@ -79,9 +89,10 @@
   display: flex;
 }
 
-h3 {
+.plot-details h3 {
   margin-top: 0px;
   font-size: 28px;
+  margin-bottom: 30px;
 }
 
 .map-show {
@@ -91,5 +102,11 @@ h3 {
 .input-group.date .input-group-addon {
     cursor: pointer;
 }
+.details-display p {
+  margin: 0px;
+}
 
+#details-figures {
+  width: 60%;
+}
 
