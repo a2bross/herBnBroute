@@ -10,8 +10,11 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
+      <%= link_to "All our plots", plots_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Add a plot", new_plot_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "My plots", user_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %>
+      <% if current_user.plots.first %>
+        <%= link_to "My plots", user_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %>
+      <% end %>
       <%= link_to "Sign out", destroy_user_session_path, class: "navbar-wagon-item navbar-wagon-link", method: :delete %>
 
       <!-- Avatar with dropdown menu -->
@@ -24,6 +27,7 @@
       </div>
     <% else %>
       <!-- Login link (when logged out) -->
+      <%= link_to "All our plots", plots_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to t(".sign_up", default: "Sign up"), new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
