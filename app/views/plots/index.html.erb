@@ -1,6 +1,12 @@
 <div class="index-container">
     <div class="cards-container">
-     <h2>Make your choice !</h2>
+      <% if params[:location] && @nearby_plots.first %>
+        <h4>Results for <%= params[:location].capitalize %>:</h4>
+      <% elsif params[:location] %>
+        <h4>No result for  <%= params[:location].capitalize %>, here are all our plots:</h4>
+      <% else %>
+        <h2>Make your choice !</h2>
+      <% end %>
       <div class="container-fluid">
         <div class="row">
           <% @plots.each do |plot| %>

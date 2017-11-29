@@ -2,6 +2,13 @@
   <div class="banner-content">
     <h1>Welcome to <span class="green-title">HerB'</span>nBroute</h1>
     <p>The grass is always greener on the other side </p>
-    <div class="btn btn-warning button"><%= link_to "Discover our plots", plots_path %></div>
+    <div class="search">
+      <form action="/plots">
+        <input class="form-control" type="text" name="location" placeholder="Where do you want to graze?">
+        <input class="btn btn-primary button" type="submit" value="Search">
+      </form>
+
+
+    </div>
   </div>
 </div>
