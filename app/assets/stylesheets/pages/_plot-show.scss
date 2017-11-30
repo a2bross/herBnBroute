@@ -104,12 +104,20 @@
   background-color: green;
 }
 
-.plot-info {
+.plot-info, .plot-reviews {
   background-color: white;
   border-radius: 4px;
   padding: 5px;
   margin-bottom: 10px;
   font-size: 17px;
+}
+
+.plot-reviews {
+  padding: 20px;
+  margin-top: 25px;
+  i {
+    color: $green;
+  }
 }
 
 .plot-location {

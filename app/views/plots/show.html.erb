@@ -65,6 +65,17 @@
               </div>
             </div>
           </div>
+
+          <% if @plot.reviews.first %>
+            <div class="plot-reviews">
+              <h3>Here's what they think...</h3>
+              <% @plot.reviews.each do |review| %>
+                <p><% review.rating.times do %><i class="fa fa-star" aria-hidden="true"></i>
+                  <% end %> <em>"<%= review.content %>"</em></p>
+              <% end %>
+            </div>
+          <% end %>
+
           <div class="plot-description">
             <h3>Where can i find the plot?</h3>
             <div id="map" style="height: 250px"
