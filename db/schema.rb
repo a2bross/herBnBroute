@@ -10,21 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171129102216) do
+ActiveRecord::Schema.define(version: 20171130104851) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "bookings", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "plot_id"
     t.date "start_date"
     t.date "end_date"
     t.integer "full_price"
-    t.integer "review_id"
-    t.string "status"
+    t.string "status", default: "pending"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.bigint "plot_id"
+    t.index ["plot_id"], name: "index_bookings_on_plot_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
   create_table "plots", force: :cascade do |t|
@@ -40,6 +41,15 @@ ActiveRecord::Schema.define(version: 20171129102216) do
     t.float "latitude"
     t.float "longitude"
     t.index ["user_id"], name: "index_plots_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.text "content"
+    t.integer "rating"
+    t.bigint "booking_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["booking_id"], name: "index_reviews_on_booking_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -62,5 +72,8 @@ ActiveRecord::Schema.define(version: 20171129102216) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bookings", "plots"
+  add_foreign_key "bookings", "users"
   add_foreign_key "plots", "users"
+  add_foreign_key "reviews", "bookings"
 end
