@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
+    @review = Review.new
     authorize @user
     @user.bookings.each do |booking|
       # check the proper Date object
@@ -11,5 +12,3 @@ class UsersController < ApplicationController
     end
   end
 end
-
-# fix for agathe

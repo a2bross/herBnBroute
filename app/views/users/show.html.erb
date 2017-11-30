@@ -26,6 +26,9 @@
             <% if @user.bookings.first %>
               <% @user.bookings.each do |booking| %>
                 <%= render 'shared/list-bookings', booking: booking %>
+                <% if booking.review.nil? %>
+                  <%= render 'shared/review', booking: booking, review: @review %>
+                <% end %>
               <% end %>
             <% end %>
           </ul>
@@ -54,16 +57,13 @@
           <h3>My requests</h3>
           <p>A lot of requests</p>
           <ul>
-            <% if @user.plots.find { |plot| plot.bookings.first } %>
-              <% @user.plots.each do |plot| %>
-                <% plot.bookings.each do |booking| %>
-                  <%= render 'shared/list-bookings', booking: booking %>
-                <% end %>
+            <% if @user.bookings_as_owner.first %>
+              <% @user.bookings_as_owner.each do |booking| %>
+                <%= render 'shared/list-bookings', booking: booking %>
               <% end %>
             <% end %>
           </ul>
         </div>
-
       </div>
     </div>
   </div>
