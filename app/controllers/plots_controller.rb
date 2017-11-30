@@ -58,7 +58,7 @@ class PlotsController < ApplicationController
   private
 
   def plot_params
-    params.require(:plot).permit(:capacity, :name, :description, :location, :daily_price, :photo, :user_id)
+    params.require(:plot).permit(:capacity, :name, :description, :location, :daily_price, :photo, :photo_cache, :user_id)
   end
 
   def set_plot
