@@ -9,7 +9,7 @@
   border: 1px solid rba(0, 0 ,0 , 0.1);
 }
 
-.user-info{
+.user-info {
   padding: 30px 20px;
   margin-bottom: 20px;
   p {
@@ -31,7 +31,7 @@
   }
 }
 
-.plots-list {
+#plots-list {
   background-color: white;
   margin-bottom: 30px;
   ul {
@@ -72,4 +72,24 @@
   .plots-header {
     display: flex;
   }
+}
+
+/////////////////////////////////TABS//////////////////////////////////////////////
+
+/* Style the tab content */
+.tabcontent {
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+.tab {
+  background: #EFEFEF;
+  text-decoration: none;
+  padding: 5px 10px;
+}
+
+.tab.active {
+  background: white;
+  color: black;
 }
