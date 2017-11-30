@@ -4,9 +4,11 @@
       <div class="col-xs-12 col-md-4 col-md-push-8">
         <div class="user-info text-center">
           <%if @user.photo %>
-            <div class="user-picture" style="background-image: url('<%= image_path "avatar_#{@user.photo}.jpg" %>')"> </div>
+            <div class="user-picture" style="background-image: url('<%= image_path "avatar_#{@user.photo}.jpg" %>')">
+            </div>
           <% else %>
-            <div class="user-picture" style="background-image: url('<%= image_path "default-user.jpg" %>')"> </div>
+            <div class="user-picture" style="background-image: url('<%= image_path "default-user.jpg" %>')">
+            </div>
           <% end %>
           <p><%= @user.first_name %> <%= @user.last_name %></p>
         </div>
