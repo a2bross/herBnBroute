@@ -22,7 +22,7 @@ class BookingsController < ApplicationController
       # @booking.status = :pending
       redirect_to user_path(current_user)
     else
-      render :new
+      render "plots/show"
     end
   end
 

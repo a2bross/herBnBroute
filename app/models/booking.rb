@@ -1,6 +1,7 @@
 class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :plot
+  has_one :review
   validates :start_date, :end_date, :full_price, :status, :user, :plot, presence: true
   validates :status, inclusion: { in: ["pending", "accepted", "declined", "completed"]}
   validate :end_cannot_be_later_than_start, :cannot_start_in_the_past
@@ -9,7 +10,7 @@ class Booking < ApplicationRecord
 
   def end_cannot_be_later_than_start
     if end_date < start_date
-      errors.add(:end_date, "can't be before than start_date")
+      errors.add(:end_date, "can't be before the start date")
     end
   end
 
