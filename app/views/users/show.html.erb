@@ -19,7 +19,7 @@
         <div class="tabs">
           <%= link_to "My bookings", "#bookings-list", class: "tab active" %>
           <%= link_to "My plots (#{@user.plots.count})", "#plots-list", class: "tab" %>
-          <%= link_to "My requests", "#requests-list", class: "tab" %>
+          <%= link_to "My requests (#{@user.bookings_as_owner.count{ |x| x.status= "pending" }} pending)", "#requests-list", class: "tab" %>
         </div>
 
         <div id="bookings-list" class="tabcontent">
