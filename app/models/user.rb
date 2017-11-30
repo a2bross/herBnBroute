@@ -1,7 +1,6 @@
 class User < ApplicationRecord
   has_many :plots, dependent: :destroy
   has_many :bookings
-  has_many :bookings, through: :plots
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

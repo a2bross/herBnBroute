@@ -42,14 +42,12 @@
           <ul>
             <% if @user.bookings.first %>
               <% @user.bookings.each do |booking| %>
-                <%= render 'shared/list-bookings', booking %>
+                <%= render 'shared/list-bookings', booking: booking %>
               <% end %>
             <% else %>
               <p class="no-plot">No booking yet!</p>
             <% end %>
           </ul>
-          <%= link_to "Accept Booking", accept_booking_path, class: "btn btn-primary" %>
-          <%= link_to "Decline Booking", decline_booking_path, class: "btn btn-primary" %>
         </div>
       <div>
     </div>
