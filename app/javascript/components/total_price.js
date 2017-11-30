@@ -1,9 +1,7 @@
 const showPrice = (duration) => {
   const price = document.getElementById('total_price');
-  if (price) {
-    const daily_price = price.dataset.dailyprice;
-    price.innerText = `Total price: ${daily_price * (duration + 1)}€`;
-  };
+  const daily_price = price.dataset.dailyprice;
+  price.innerText = `Total price: ${daily_price * (duration + 1)}€`;
 };
 
 const calculatePrice = (event) => {
@@ -17,10 +15,13 @@ const calculatePrice = (event) => {
 
 
 const displayPrice = () => {
-  const start_date = document.getElementById('booking_start_date');
-  const end_date = document.getElementById('booking_end_date');
-  start_date.addEventListener('change', calculatePrice);
-  end_date.addEventListener('change', calculatePrice);
+  const price = document.getElementById('total_price');
+  if (price) {
+    const start_date = document.getElementById('booking_start_date');
+    const end_date = document.getElementById('booking_end_date');
+    start_date.addEventListener('change', calculatePrice);
+    end_date.addEventListener('change', calculatePrice);
+  }
 }
 
 

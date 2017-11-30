@@ -5,9 +5,11 @@
       <div class="col-xs-12 col-md-4 col-md-push-8">
         <div class="user-info text-center">
           <%if @user.photo %>
-            <div class="user-picture" style="background-image: url('<%= image_path "avatar_#{@user.photo}.jpg" %>')"> </div>
+            <div class="user-picture" style="background-image: url('<%= image_path "avatar_#{@user.photo}.jpg" %>')">
+            </div>
           <% else %>
-            <div class="user-picture" style="background-image: url('<%= image_path "default-user.jpg" %>')"> </div>
+            <div class="user-picture" style="background-image: url('<%= image_path "default-user.jpg" %>')">
+            </div>
           <% end %>
           <p><%= @user.first_name %> <%= @user.last_name %></p>
         </div>
@@ -15,11 +17,27 @@
 
       <div class="col-xs-12 col-md-8 col-md-pull-4">
         <div class="tabs">
-          <%= link_to "My plots #{@user.plots.count}", "#plots-list", class: "tab active" %>
-          <%= link_to "My bookings", "#bookings-list", class: "tab" %>
+          <%= link_to "My bookings", "#bookings-list", class: "tab active" %>
+          <%= link_to "My plots (#{@user.plots.count})", "#plots-list", class: "tab" %>
+          <%= link_to "My requests", "#requests-list", class: "tab" %>
         </div>
 
-        <div id="plots-list" class="tabcontent">
+        <div id="bookings-list" class="tabcontent">
+          <h3>My bookings</h3>
+          <p>A lot of bookings</p>
+          <ul>
+            <% if @user.bookings.first %>
+              <% @user.bookings.each do |booking| %>
+                <%= render 'shared/list-bookings', booking: booking %>
+                <% if booking.review.nil? %>
+                  <%= render 'shared/review', booking: booking, review: @review %>
+                <% end %>
+              <% end %>
+            <% end %>
+          </ul>
+        </div>
+
+        <div id="plots-list" class="tabcontent hidden">
           <div class="plots-header">
             <h4>My plots</h4>
             <% if @user == current_user %>
@@ -37,14 +55,14 @@
           </ul>
         </div>
 
-        <div id="bookings-list" class="tabcontent hidden">
-          <div class="bookings-header">
-            <h4>My bookings</h4>
-          </div>
+        <div id="requests-list" class="tabcontent hidden">
+          <h3>My requests</h3>
+          <p>A lot of requests</p>
           <ul>
-          <% if @user.bookings.first %>
-            <% @user.bookings.each do |booking| %>
-              <%= render 'shared/list-bookings', booking: booking %>
+            <% if @user.bookings_as_owner.first %>
+              <% @user.bookings_as_owner.each do |booking| %>
+                <%= render 'shared/list-bookings', booking: booking %>
+              <% end %>
             <% end %>
           <% else %>
             <p class="no-plot">No booking yet!</p>
