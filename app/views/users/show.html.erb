@@ -18,12 +18,16 @@
       <div class="col-xs-12 col-md-8 col-md-pull-4">
         <div class="tabs">
           <%= link_to "My bookings (#{@user.bookings.count})", "#bookings-list", class: "tab active" %>
-          <%= link_to "My plots (#{@user.plots.count})", "#plots-list", class: "tab" %>
+          <% if @user.plots.first %>
+            <%= link_to "My plots (#{@user.plots.count})", "#plots-list", class: "tab" %>
+          <% end %>
           <%= link_to "My requests (#{@user.bookings_as_owner.count{ |x| x.status= "pending" }} pending)", "#requests-list", class: "tab" %>
         </div>
 
         <div id="bookings-list" class="tabcontent">
-          <h4>My bookings</h4>
+          <div class="show-header">
+            <h4>My bookings</h4>
+          </div>
           <ul>
             <% if @user.bookings.first %>
               <% @user.bookings.each do |booking| %>
@@ -43,7 +47,7 @@
         </div>
 
         <div id="plots-list" class="tabcontent hidden">
-          <div class="plots-header">
+          <div class="show-header">
             <h4>My plots</h4>
             <% if @user == current_user %>
               <%= link_to "Add a plot", new_plot_path, class: "btn btn-primary" %>
@@ -61,8 +65,9 @@
         </div>
 
         <div id="requests-list" class="tabcontent hidden">
-          <h4>My requests</h4>
-          <p>A lot of requests</p>
+          <div class="show-header">
+            <h4>My requests</h4>
+          </div>
           <ul>
             <% if @user.bookings_as_owner.first %>
               <% @user.bookings_as_owner.each do |booking| %>
