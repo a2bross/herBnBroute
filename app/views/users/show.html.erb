@@ -63,10 +63,9 @@
               <% @user.bookings_as_owner.each do |booking| %>
                 <%= render 'shared/list-bookings', booking: booking %>
               <% end %>
+            <% else %>
+              <p class="no-plot">No booking yet!</p>
             <% end %>
-          <% else %>
-            <p class="no-plot">No booking yet!</p>
-          <% end %>
           </ul>
         </div>
       </div>
