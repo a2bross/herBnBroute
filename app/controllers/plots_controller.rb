@@ -12,8 +12,8 @@ class PlotsController < ApplicationController
     @markers = @plots.map do |plot|
       {
         lat: plot.latitude,
-        lng: plot.longitude#,
-        # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+        lng: plot.longitude,
+        infoWindow: { content: render_to_string(partial: "/plots/map_box", locals: { plot: plot }) }
       }
     end
   end
