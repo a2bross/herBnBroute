@@ -11,13 +11,27 @@
           <p><%= @user.first_name %> <%= @user.last_name %></p>
         </div>
       </div>
+
       <div class="col-xs-12 col-md-8 col-md-pull-4">
         <div class="tabs">
-          <%= link_to "My plots #{@user.plots.count}", "#plots-list", class: "tab active" %>
-          <%= link_to "My bookings", "#bookings-list", class: "tab" %>
+          <%= link_to "My bookings", "#bookings-list", class: "tab active" %>
+          <%= link_to "My plots (#{@user.plots.count})", "#plots-list", class: "tab" %>
+          <%= link_to "My requests", "#requests-list", class: "tab" %>
         </div>
 
-        <div id="plots-list" class="tabcontent">
+        <div id="bookings-list" class="tabcontent">
+          <h3>My bookings</h3>
+          <p>A lot of bookings</p>
+          <ul>
+            <% if @user.bookings.first %>
+              <% @user.bookings.each do |booking| %>
+                <%= render 'shared/list-bookings', item: booking %>
+              <% end %>
+            <% end %>
+          </ul>
+        </div>
+
+        <div id="plots-list" class="tabcontent hidden">
           <div class="plots-header">
             <h4>My plots</h4>
             <% if @user == current_user %>
@@ -34,24 +48,25 @@
             <% end %>
              </ul>
           </div>
-        </div>
 
-        <div id="bookings-list" class="tabcontent hidden">
-          <h3>My bookings</h3>
-          <p>A lot of bookings</p>
+
+        <div id="requests-list" class="tabcontent hidden">
+          <h3>My requests</h3>
+          <p>A lot of requests</p>
           <ul>
-            <% if @user.bookings.first %>
-              <% @user.bookings.each do |booking| %>
-                <%= render 'shared/list-bookings', booking %>
+            <% if @user.plots.find { |plot| plot.bookings.first } %>
+              <% @user.plots.each do |plot| %>
+                <% plot.bookings.each do |booking| %>
+                  <%= render 'shared/list-bookings', item: booking %>
+                <% end %>
               <% end %>
-            <% else %>
-              <p class="no-plot">No booking yet!</p>
             <% end %>
           </ul>
           <%= link_to "Accept Booking", accept_booking_path, class: "btn btn-primary" %>
           <%= link_to "Decline Booking", decline_booking_path, class: "btn btn-primary" %>
         </div>
-      <div>
+
+      </div>
     </div>
   </div>
 </div>
