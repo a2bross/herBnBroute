@@ -30,8 +30,12 @@
                 </div>
                   <div class="card-name"><%= link_to "#{plot.name}", plot_path(plot) %></div>
                   <div class="card-footer">
-                    <div class="card-description"><%=plot.daily_price%>€ per day</div>
-                    <div class="icon"><i class="fa fa-paw" aria-hidden="true"></i> <%= "#{plot.capacity}" %></div>
+                    <div class="card-description"><%= plot.daily_price %>€ per day</div>
+                    <div class="icon"><i class="fa fa-paw" aria-hidden="true"></i> <%= plot.capacity %>
+                      <% if plot.reviews %>
+                        <i class="fa fa-heart" aria-hidden="true"></i> <%= plot.reviews.count %>
+                      <% end %>
+                    </div>
                   </div>
               </div>
             </div>
