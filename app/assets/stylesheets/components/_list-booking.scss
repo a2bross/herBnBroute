@@ -1,0 +1,78 @@
+.listed-bookings {
+  display:flex;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #EFEFEF;
+  margin-bottom: 10px;
+}
+
+.booking-details {
+
+  padding-left: 20px;
+  flex-grow: 1;
+   h3 {
+  font-size: 18px;
+  margin-bottom: 0px;
+  color: #5F8F30;
+  }
+  p {
+  margin-top : 6px;
+  opacity: 0.3;
+  }
+}
+
+.accepted {
+  display: inline;
+  position: absolute;
+  bottom: 10px;
+  right: 80px;
+  font-size: 16px;
+}
+
+.declined {
+  display: flex;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 16px;
+}
+
+
+.booking-price {
+  width: 100px;
+  opacity: 1;
+  font-size: 14px;
+  text-align:left;
+  p:first-child {
+    font-size: 18px;
+    font-weight: bold;
+  }
+}
+
+
+.item-picture {
+  height: 100px;
+  width: 177.5px;
+  background-size: cover;
+  background-position: center;
+}
+
+
+@media (max-width: 786px) {
+  .listed-item {
+  display:block;
+  img {
+    text-align: center;
+    }
+  }
+  .item-price {
+  width: auto;
+  text-align: center;
+  margin-top: 20px;
+  p:first-child {
+    margin-bottom: 0px;
+    }
+  }
+}
