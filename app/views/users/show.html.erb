@@ -15,11 +15,9 @@
         <div class="tabs">
           <%= link_to "My plots #{@user.plots.count}", "#plots-list", class: "tab active" %>
           <%= link_to "My bookings", "#bookings-list", class: "tab" %>
-          <%= link_to "Demands", "#demands-list", class: "tab" %>
         </div>
 
         <div id="plots-list" class="tabcontent">
-          <p>test plots</p>
           <div class="plots-header">
             <h4>My plots</h4>
             <% if @user == current_user %>
@@ -41,40 +39,18 @@
         <div id="bookings-list" class="tabcontent hidden">
           <h3>My bookings</h3>
           <p>A lot of bookings</p>
-
+          <ul>
+            <% if @user.bookings.first %>
+              <% @user.bookings.each do |booking| %>
+                <%= render 'shared/list-bookings', booking %>
+              <% end %>
+            <% else %>
+              <p class="no-plot">No booking yet!</p>
+            <% end %>
+          </ul>
+          <%= link_to "Accept Booking", accept_booking_path, class: "btn btn-primary" %>
+          <%= link_to "Decline Booking", decline_booking_path, class: "btn btn-primary" %>
         </div>
-
-        <div id="demands-list" class="tabcontent hidden">
-          <h3>My demands</h3>
-          <p>A lot of demands</p>
-        </div>
-        <!-- <script>
-          // sélectionner les tabs
-          const tabs = document.querySelectorAll(".tab");
-          // boucler sur les tabs
-          tabs.forEach((tab) => {
-            // poser un micro sur chaque tab (click)
-            tab.addEventListener("click", (event) => {
-              event.preventDefault();
-              // supprimer la classe active des autres tabs
-              tabs.forEach((item) => {
-                item.classList.remove("active");
-              });
-              // ajouter la classe active au currentTarget
-              event.currentTarget.classList.add("active");
-              // ajouter la classe hidden aux autres div.tabcontent
-              document.querySelectorAll('.tabcontent').forEach((div) => {
-                div.classList.add("hidden");
-              });
-              // récupérer le href du currentTarget
-              const id = event.currentTarget.href.split('#')[1];
-              // recupérer la div correspondante
-              const targetDiv = document.getElementById(id);
-              // lui enlever la classe hidden
-              targetDiv.classList.remove('hidden');
-            })
-          });
-        </script> -->
       <div>
     </div>
   </div>
