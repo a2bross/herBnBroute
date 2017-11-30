@@ -3,11 +3,14 @@
     <h1>Welcome to <span class="green-title">HerB'</span>nBroute</h1>
     <p>The grass is always greener on the other side </p>
     <div class="search">
-      <form action="/plots">
-        <input class="form-control" id="plot_location" type="text" name="location" placeholder="Where do you want to graze?">
-        <input class="btn btn-primary button" type="submit" value="Search">
-      </form>
-
+      <%= form_tag plots_path, method: :get do %>
+        <%= text_field_tag :query,
+           params[:location],
+          class: "form-control",
+          id: "plot_location",
+          placeholder: "Where do you want to graze?"  %>
+        <%= submit_tag "Search", class: "btn btn-primary button" %>
+      <% end %>
 
     </div>
   </div>
