@@ -4,7 +4,7 @@ class PlotsController < ApplicationController
 
   def index
     @nearby_plots = Plot.near(params[:location], 10)
-    if params[:location] && @nearby_plots.first
+    if params[:location].present? && @nearby_plots.first
       @plots = @nearby_plots
     else
       @plots = Plot.where.not(latitude: nil, longitude: nil)
@@ -20,6 +20,10 @@ class PlotsController < ApplicationController
 
   def show
     @booking = Booking.new
+    @markers = []
+    if @plot.latitude && @plot.longitude
+      @markers << { lat: @plot.latitude, lng: @plot.longitude }
+    end
   end
 
   def new

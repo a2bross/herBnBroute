@@ -79,7 +79,7 @@
           <div class="plot-description">
             <h3>Where can i find the plot?</h3>
             <div id="map" style="height: 250px"
-              data-markers="<%= [{lat: @plot.latitude, lng: @plot.longitude}].to_json %>"
+              data-markers="<%= @markers.to_json %>"
               class="map-show">
             </div>
           </div>
