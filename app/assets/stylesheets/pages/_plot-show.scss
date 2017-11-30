@@ -1,6 +1,7 @@
 .show-container {
-  background-color: white;
+  background-color: #F4F4F4;
   padding-top: 70px;
+  font-family: 'Varela Round', sans-serif;
 }
 
 .plot-cover {
@@ -18,7 +19,7 @@
 
 .edit-plot-show a {
   position: absolute;
-  background-color: #346E23;
+  background-color: white;
   color: white;
   text-decoration: none;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
@@ -35,7 +36,7 @@
 
 .delete-plot-show a {
   position: absolute;
-  background-color: #346E23;
+  background-color: white;
   color: white;
   text-decoration: none;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
@@ -56,36 +57,48 @@
   margin-left: 10%;
 }
 
-.flex-between {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+// .flex-between {
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+// }
 
-.details-display {
-  display: flex;
-  justify-content: space-between;
-  position: relative;
-  margin-right: 7px;
+// .details-display {
+//   display: flex;
+//   justify-content: space-between;
+//   position: relative;
+//   margin-right: 7px;
+// }
+
+.details {
+  border-top: 1px solid #C2C5CB;
+  padding: 15px;
+
 }
 
 .avatar-show {
   border-radius: 50%;
-  height: 50px;
-  width: 50px;
+  height: 60px;
+  width: 60px;
   position: absolute;
   right: 30px;
+  margin-top: -95px;
 }
+
 
 .plot-book {
   align-items: center;
-  background-color: rgb(230, 230, 230);
+  background-color: white;
   padding: 10px;
   bottom: 10px;
   left: 10px;
   border-radius: 4px;
-  padding: 10px;
-  margin-bottom: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  position: sticky !important;
+}
+.plot-book h3 {
+  text-align: center;
 }
 
 .book_button {
@@ -96,29 +109,35 @@
 .button_book {
   text-align: center;
   background-color: green;
-
 }
 
 .plot-info {
-  background-color: rgb(230, 230, 230);
+  background-color: white;
   border-radius: 4px;
-  padding: 10px;
+  padding: 5px;
   margin-bottom: 10px;
+  font-size: 17px;
 }
 
 .plot-location {
-  background-color: rgb(230, 230, 230);
+  background-color: white;
   border-radius: 4px;
-  height : 100px;
-  padding: 10px;
+  height : 350px;
+  padding: 20px;
   margin-bottom: 10px;
 }
 
 .plot-description {
-  background-color: rgb(230, 230, 230);
-  padding: 30px 20px; // à supprimer
-  margin-bottom: 30px; // à supprimer
+  background-color: white;
+  // padding: 30px 20px; // à supprimer
+  // margin-bottom: 30px; // à supprimer
   border-radius: 4px;
+  padding: 20px;
+  margin-top: 5px;
+}
+
+#map {
+  height: 250px;
 }
 
 .linked_pickers {
@@ -145,5 +164,15 @@
 
 #details-figures {
   width: 60%;
+  margin-bottom: 10px;
+}
+.owner-details {
+  // border-top: 1px solid #C2C5CB;
 }
 
+.form {
+  padding: 40px 10px;
+  width: 350px;
+  justify-content: center;
+
+}

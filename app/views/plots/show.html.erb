@@ -34,47 +34,50 @@
       <div class="row">
         <div class="col-xs-12 col-sm-4 col-sm-push-8">
           <div class="plot-book">
-            <h3>Book this plot for your sheep!</h3>
+            <h3>Book it now!</h3>
+            <div id=“total_price” data-dailyprice=“<%= @plot.daily_price %>“> Total price : 150 </div>
             <div class="linked_pickers">
-              <div class="container">
+              <div class="form">
                 <%= render 'plots/flatpickr', plot: @plot, booking: @booking %>
               </div>
             </div>
           </div>
-          <div class="plot-info">
-              <div>
+
+        </div>
+
+        <div class="col-xs-12 col-sm-8 col-sm-pull-4">
+          <div class="plot-location">
+            <h3> A bit more about this plot ...</h3>
+              <div class="owner-details">
+                <p><i class="fa fa-map-marker" aria-hidden="true"></i> This plot is located in <%= @plot.location %></p>
+                 <p><i class="fa fa-paw" aria-hidden="true"></i> it  can accomodate <%= @plot.capacity %> animals of any kind </p>
+                 <p><i class="fa fa-user" aria-hidden="true"></i> His owner is <%= @plot.user.first_name %> <%= @plot.user.last_name %></p>
                 <% if @plot.user.photo %>
                   <%= image_tag "avatar_#{@plot.user.photo}.jpg", class:"avatar-show"%>
                 <% else %>
                   <%= image_tag "default-user.jpg", class:"avatar-show" %>
                 <% end %>
               </div>
-            <h3>Details</h3>
-            <div class="details-display flex-between">
+
+          <div class="plot-info">
+           <!--  <div class="details-display flex-between"> -->
               <div class="flex-between", id="details-figures">
-                <span class="card-description"><%= "#{@plot.daily_price}€ per day" %></span>
-                <div class="flex-between" >
-                  <i class="fa fa-paw" aria-hidden="true"></i>
-                  <p>  <%= @plot.capacity %></p>
-                </div>
+               <!--  <div class="flex-between" > -->
+                <!-- </div> -->
               </div>
-              <div>
-                <%= @plot.user.first_name %>
+            <!-- </div> -->
+              <div class="details">
+                <p><%= @plot.description %></p>
               </div>
-            </div>
           </div>
-        </div>
-        <div class="col-xs-12 col-sm-8 col-sm-pull-4">
-          <div class="plot-location">
-            <h3> Find us at ...</h3>
-            <p><i class="fa fa-map-marker" aria-hidden="true"></i>   <%= @plot.location %></p>
           </div>
+
            <div class="plot-description">
-            <h3> A bit more about this plot ...</h3>
-            <p> <%= @plot.description %></p>
-            <div id="map"
-              data-markers="<%= [{lat: @plot.latitude, lng: @plot.longitude}].to_json %>"
-              class="map-show"></div>
+             <h3>Where can i find the plot?</h3>
+              <div id="map"
+                data-markers="<%= [{lat: @plot.latitude, lng: @plot.longitude}].to_json %>"
+                class="map-show">
+              </div>
             </div>
           </div>
         </div>
