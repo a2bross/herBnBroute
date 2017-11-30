@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:show, :edit, :update, :destroy]
-  before_action :set_plot, only: [:new, :create, :destroy]
+  before_action :set_booking, only: [:show, :edit, :update, :destroy, :accept, :decline]
+  before_action :set_plot, only: [:new, :create]
 
   def index
     @bookings = Booking.all
@@ -19,10 +19,10 @@ class BookingsController < ApplicationController
     duration = Date.parse(params[:booking][:end_date]) - Date.parse(params[:booking][:start_date]) + 1
     @booking.full_price = @plot.daily_price * duration.to_i
     if @booking.save
-      @booking.status = "booked"
+      # @booking.status = :pending
       redirect_to plot_booking_path(@plot.id, @booking.id)
     else
-      raise
+      render :new
     end
   end
 
@@ -36,13 +36,24 @@ class BookingsController < ApplicationController
     if @booking.update(booking_params)
       redirect_to booking_path(@plot)
     else
-      raise
+      render :edit
     end
   end
 
   def destroy
+    @plot = @booking.plot
     @booking.destroy
     redirect_to plot_path(@plot)
+  end
+
+  def accept
+    @booking.status = "accepted"
+    @booking.save
+  end
+
+  def decline
+    @booking.status = "declined"
+    @booking.save
   end
 
   private

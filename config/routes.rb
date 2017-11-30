@@ -3,7 +3,14 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :plots do
-    resources :bookings
+    resources :bookings, only: [ :create ]
   end
+  resources :bookings, only: [] do
+    member do
+      patch :accept
+      patch :decline
+    end
+  end
+  # patch 'bookings/:id/accept', to: "bookings#accept"
   resources :users, only: [:show]
 end
