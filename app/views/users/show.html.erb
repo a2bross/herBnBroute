@@ -1,6 +1,7 @@
 <div class="user-details">
   <div class="container-fluid">
     <div class="row">
+
       <div class="col-xs-12 col-md-4 col-md-push-8">
         <div class="user-info text-center">
           <%if @user.photo %>
@@ -43,17 +44,16 @@
               <%= link_to "Add a plot", new_plot_path, class: "btn btn-primary" %>
             <% end %>
           </div>
-           <ul>
-            <% if @user.plots.first %>
-              <% @user.plots.each do |plot| %>
-                <%= render 'shared/list-item', item: plot %>
-              <% end %>
-            <% else %>
-              <p class="no-plot">No plots for the sheep to graze :(</p>
+          <ul>
+          <% if @user.plots.first %>
+            <% @user.plots.each do |plot| %>
+              <%= render 'shared/list-item', item: plot %>
             <% end %>
-             </ul>
-          </div>
-
+          <% else %>
+            <p class="no-plot">No plots for the sheep to graze :(</p>
+          <% end %>
+          </ul>
+        </div>
 
         <div id="requests-list" class="tabcontent hidden">
           <h3>My requests</h3>
@@ -64,6 +64,9 @@
                 <%= render 'shared/list-bookings', booking: booking %>
               <% end %>
             <% end %>
+          <% else %>
+            <p class="no-plot">No booking yet!</p>
+          <% end %>
           </ul>
         </div>
       </div>
