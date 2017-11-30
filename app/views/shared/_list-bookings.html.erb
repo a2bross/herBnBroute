@@ -16,6 +16,6 @@
     <p><%= booking.plot.daily_price %> €</p>
     <p>per day</p>
   </div>
-  <%= link_to "Accept Booking", accept_booking_path, class: "btn btn-primary" %>
-  <%= link_to "Decline Booking", decline_booking_path, class: "btn btn-primary" %>
+  <%= link_to "Accept Booking", accept_booking_path(booking), method: :patch, class: "btn btn-primary" %>
+  <%= link_to "Decline Booking", decline_booking_path(booking), method: :patch, class: "btn btn-primary" %>
 </li>
