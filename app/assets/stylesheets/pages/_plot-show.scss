@@ -12,8 +12,12 @@
   justify-content: center;
   position: relative;
   background-position: center;
-  color: white;
+  // color: white;
   text-align: center;
+}
+
+.plot-cover h1 {
+  color:white;
 }
 
 
@@ -57,23 +61,9 @@
   margin-left: 10%;
 }
 
-// .flex-between {
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: center;
-// }
-
-// .details-display {
-//   display: flex;
-//   justify-content: space-between;
-//   position: relative;
-//   margin-right: 7px;
-// }
-
 .details {
   border-top: 1px solid #C2C5CB;
   padding: 15px;
-
 }
 
 .avatar-show {
@@ -81,8 +71,8 @@
   height: 60px;
   width: 60px;
   position: absolute;
-  right: 30px;
-  margin-top: -95px;
+  left: 380px;
+  margin-top: -80px;
 }
 
 
@@ -95,7 +85,6 @@
   border-radius: 4px;
   padding: 20px;
   margin-bottom: 20px;
-  position: sticky !important;
 }
 .plot-book h3 {
   text-align: center;
@@ -129,15 +118,9 @@
 
 .plot-description {
   background-color: white;
-  // padding: 30px 20px; // à supprimer
-  // margin-bottom: 30px; // à supprimer
   border-radius: 4px;
-  padding: 20px;
-  margin-top: 5px;
-}
-
-#map {
-  height: 250px;
+  padding: 15px;
+  margin-top: 25px;
 }
 
 .linked_pickers {
@@ -166,13 +149,37 @@
   width: 60%;
   margin-bottom: 10px;
 }
-.owner-details {
-  // border-top: 1px solid #C2C5CB;
-}
 
 .form {
   padding: 40px 10px;
   width: 350px;
   justify-content: center;
+}
 
+#total_price {
+  font-size: 20px;
+  font-weight: bolder;
+  text-align: center;
+  color: #CF0A2C;
+}
+
+.flexbox {
+  display: flex;
+}
+#show-flexbox {
+  margin-top: 5px;
+  justify-content: space-between;
+  .left-elements {
+    flex: 0 0 60%;
+    z-index: 100;
+  }
+  .right-elements {
+    flex: 0 0 35%;
+    position: sticky;
+    top: 90px;
+    height: 100%;
+  }
+}
+.owner-details {
+  color: #37474F;
 }
