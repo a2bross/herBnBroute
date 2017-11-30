@@ -1,6 +1,7 @@
 <div class="user-details">
   <div class="container-fluid">
     <div class="row">
+
       <div class="col-xs-12 col-md-4 col-md-push-8">
         <div class="user-info text-center">
           <%if @user.photo %>
@@ -11,6 +12,7 @@
           <p><%= @user.first_name %> <%= @user.last_name %></p>
         </div>
       </div>
+
       <div class="col-xs-12 col-md-8 col-md-pull-4">
         <div class="tabs">
           <%= link_to "My plots #{@user.plots.count}", "#plots-list", class: "tab active" %>
@@ -24,32 +26,32 @@
               <%= link_to "Add a plot", new_plot_path, class: "btn btn-primary" %>
             <% end %>
           </div>
-           <ul>
-            <% if @user.plots.first %>
-              <% @user.plots.each do |plot| %>
-                <%= render 'shared/list-item', item: plot %>
-              <% end %>
-            <% else %>
-              <p class="no-plot">No plots for the sheep to graze :(</p>
+          <ul>
+          <% if @user.plots.first %>
+            <% @user.plots.each do |plot| %>
+              <%= render 'shared/list-item', item: plot %>
             <% end %>
-             </ul>
-          </div>
+          <% else %>
+            <p class="no-plot">No plots for the sheep to graze :(</p>
+          <% end %>
+          </ul>
         </div>
 
         <div id="bookings-list" class="tabcontent hidden">
-          <h3>My bookings</h3>
-          <p>A lot of bookings</p>
+          <div class="bookings-header">
+            <h4>My bookings</h4>
+          </div>
           <ul>
-            <% if @user.bookings.first %>
-              <% @user.bookings.each do |booking| %>
-                <%= render 'shared/list-bookings', booking: booking %>
-              <% end %>
-            <% else %>
-              <p class="no-plot">No booking yet!</p>
+          <% if @user.bookings.first %>
+            <% @user.bookings.each do |booking| %>
+              <%= render 'shared/list-bookings', booking: booking %>
             <% end %>
+          <% else %>
+            <p class="no-plot">No booking yet!</p>
+          <% end %>
           </ul>
         </div>
-      <div>
+      </div>
     </div>
   </div>
 </div>
