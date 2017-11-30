@@ -1,0 +1,8 @@
+<div class="review-container">
+  <p>Leave a review for your booking:</p>
+  <%= simple_form_for [booking, review] do |f| %>
+    <%= f.input :content, label:false, placeholder: "The grass was great!" %>
+    <%= f.input :rating, collection: 1..5, as: :radio_buttons %>
+    <%= f.submit class: "btn btn-primary" %>
+  <% end %>
+</div>
