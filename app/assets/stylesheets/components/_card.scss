@@ -55,12 +55,18 @@
   list-style: none;
   font-weight: 150;
   color: #484848;
-  margin-left: 10px;
 }
+
 .icon {
   margin-left: 10px;
   font-weight: 100;
   font-size: 15px;
+  i {
+    color: $green;
+  }
+  i:last-child{
+    margin-left: 5px;
+  }
 }
 
 

@@ -24,35 +24,39 @@
 .edit-plot-show a {
   position: absolute;
   background-color: white;
-  color: white;
+  color: $green;
+  border: 1px solid $green;
   text-decoration: none;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
   border-radius: 3px;
   width: 70px;
   right: 30px;
   top: 30px;
-  padding: 10px, 20px;
+  padding: 5px 0px;
 }
 
 .edit-plot-show a:hover {
-  background-color: green;
+  background-color: $green;
+  color: white;
 }
 
 .delete-plot-show a {
   position: absolute;
   background-color: white;
-  color: white;
+  color: $red;
+  border: 1px solid $red;
   text-decoration: none;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
   border-radius: 3px;
   width: 70px;
   right: 110px;
   top: 30px;
-  padding: 10px, 20px;
+  padding: 5px 0px;
 }
 
 .delete-plot-show a:hover {
-  background-color: red;
+  background-color: $red;
+  color: white;
 }
 
 .plot-details {
@@ -71,7 +75,7 @@
   height: 60px;
   width: 60px;
   position: absolute;
-  left: 380px;
+  left: 330px;
   margin-top: -80px;
 }
 
@@ -100,12 +104,20 @@
   background-color: green;
 }
 
-.plot-info {
+.plot-info, .plot-reviews {
   background-color: white;
   border-radius: 4px;
   padding: 5px;
   margin-bottom: 10px;
   font-size: 17px;
+}
+
+.plot-reviews {
+  padding: 20px;
+  margin-top: 25px;
+  i {
+    color: $green;
+  }
 }
 
 .plot-location {
@@ -171,7 +183,8 @@
   justify-content: space-between;
   .left-elements {
     flex: 0 0 60%;
-    z-index: 100;
+    z-index: 1;
+    order: -1;
   }
   .right-elements {
     flex: 0 0 35%;
@@ -182,4 +195,15 @@
 }
 .owner-details {
   color: #37474F;
+}
+
+@media (max-width: 992px) {
+  #show-flexbox {
+    display: block;
+    z-index: 1;
+    position: relative;
+  }
+  .right-elements {
+    position: initial;
+  }
 }
