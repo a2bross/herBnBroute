@@ -10,8 +10,8 @@ Rails.application.routes.draw do
       patch :accept
       patch :decline
     end
+    resources :reviews, only: :create
   end
   # patch 'bookings/:id/accept', to: "bookings#accept"
   resources :users, only: [:show]
-  resources :reviews, only: :create
 end
