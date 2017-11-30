@@ -1,0 +1,34 @@
+<li class="listed-bookings">
+  <%= link_to plot_path(plot) do %>
+    <% if plot.photo.present? %>
+      <div class="item-picture" style="background-image: url('<%= cl_image_path item.photo %>')"></div>
+    <% else %>
+      <div class="item-picture" style="background-image: url('<%= image_path "default-plot-picture-thumbnail.jpg" %>')"></div>
+    <% end %>
+  <% end %>
+
+  <div class="item-details">
+    <h3><%= link_to item.name, plot_path(item) %></h3>
+    <p><%= item.location %></p>
+    <p>
+      <i class="fa fa-paw" aria-hidden="true"></i> <%= item.capacity %>
+    </p>
+    <p>
+      <% if policy(item).edit? %>
+        <%= link_to edit_plot_path(item) do %>
+        Edit <i class="fa fa-pencil" aria-hidden="true"></i>  |
+        <% end %>
+      <% end %>
+      <% if policy(item).destroy? %>
+        <%= link_to plot_path(item), method: :delete,
+          data: { confirm: "Are you sure?" } do %>
+        Delete <i class="fa fa-trash-o" aria-hidden="true"></i>
+        <% end %>
+      <% end %>
+    </p>
+  </div>
+  <div class="item-price">
+    <p><%= item.daily_price %> €</p>
+    <p>per day</p>
+  </div>
+</li>
