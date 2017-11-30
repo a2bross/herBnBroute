@@ -20,9 +20,9 @@ class BookingsController < ApplicationController
     @booking.full_price = @plot.daily_price * duration.to_i
     if @booking.save
       # @booking.status = :pending
-      redirect_to plot_booking_path(@plot.id, @booking.id)
+      redirect_to user_path(current_user)
     else
-      render :new
+      render "plots/show"
     end
   end
 
