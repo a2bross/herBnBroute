@@ -25,7 +25,7 @@
           <ul>
             <% if @user.bookings.first %>
               <% @user.bookings.each do |booking| %>
-                <%= render 'shared/list-bookings', item: booking %>
+                <%= render 'shared/list-bookings', booking: booking %>
               <% end %>
             <% end %>
           </ul>
@@ -57,13 +57,11 @@
             <% if @user.plots.find { |plot| plot.bookings.first } %>
               <% @user.plots.each do |plot| %>
                 <% plot.bookings.each do |booking| %>
-                  <%= render 'shared/list-bookings', item: booking %>
+                  <%= render 'shared/list-bookings', booking: booking %>
                 <% end %>
               <% end %>
             <% end %>
           </ul>
-          <%= link_to "Accept Booking", accept_booking_path, class: "btn btn-primary" %>
-          <%= link_to "Decline Booking", decline_booking_path, class: "btn btn-primary" %>
         </div>
 
       </div>
