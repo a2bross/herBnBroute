@@ -1,17 +1,34 @@
 <div class="show-container">
-  <div class="plot-cover" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= image_path 'default-plot-picture.jpg'%>)">
-    <h1 id="welcome-plot-name">Welcome to <%= @plot.name %></h1>
-    <% if current_user == @plot.user  %>
-      <div class="edit-plot-show">
-      <%= link_to "Edit", edit_plot_path(@plot) %>
-      </div>
-      <div class="delete-plot-show">
-        <%= link_to "Delete", plot_path(@plot),
-        method: :delete,
-        data: { confirm: "Are you sure?" } %>
-      </div>
-    <% end %>
-  </div>
+  <% if @plot.photo.present? %>
+     <div class="plot-cover" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= cl_image_path @plot.photo %>')">
+        <h1 id="welcome-plot-name">Welcome to <%= @plot.name %></h1>
+          <% if current_user == @plot.user  %>
+            <div class="edit-plot-show">
+              <%= link_to "Edit", edit_plot_path(@plot) %>
+            </div>
+            <div class="delete-plot-show">
+              <%= link_to "Delete", plot_path(@plot),
+                method: :delete,
+                data: { confirm: "Are you sure?" } %>
+            </div>
+          <% end %>
+    </div>
+  <% else %>
+    <div class="plot-cover" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= image_path 'default-plot-picture.jpg' %>)">
+      <h1 id="welcome-plot-name">Welcome to <%= @plot.name %></h1>
+        <% if current_user == @plot.user  %>
+          <div class="edit-plot-show">
+            <%= link_to "Edit", edit_plot_path(@plot) %>
+          </div>
+          <div class="delete-plot-show">
+            <%= link_to "Delete", plot_path(@plot),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>
+          </div>
+        <% end %>
+    </div>
+  <% end %>
+
   <div class="plot-details">
     <div class="container-fluid">
       <div class="row">
