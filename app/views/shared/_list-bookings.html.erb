@@ -5,17 +5,22 @@
     <div class="item-picture" style="background-image: url('<%= image_path "default-plot-picture-thumbnail.jpg" %>')"></div>
   <% end %>
 
-  <div class="item-details">
-    <h3>booking.plot.name</h3>
+  <div class="booking-details">
+    <h3><%= booking.plot.name %></h3>
     <p><%= booking.plot.location %></p>
     <p>
       <i class="fa fa-paw" aria-hidden="true"></i> <%= booking.plot.capacity %>
     </p>
   </div>
-  <div class="item-price">
-    <p><%= booking.plot.daily_price %> €</p>
+
+  <div class="booking-price">
+    <p id="price-show"><%= booking.plot.daily_price %> €</p>
     <p>per day</p>
   </div>
-  <%= link_to "Accept Booking", accept_booking_path(booking), method: :patch, class: "btn btn-primary" %>
-  <%= link_to "Decline Booking", decline_booking_path(booking), method: :patch, class: "btn btn-primary" %>
+    <div class="accepted">
+      <%= link_to "Accept", accept_booking_path(booking), method: :patch, class: "btn" %>
+    </div>
+    <div class="declined">
+      <%= link_to "Decline", decline_booking_path(booking), method: :patch, class: "btn" %>
+    </div>
 </li>
