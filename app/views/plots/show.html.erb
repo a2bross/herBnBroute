@@ -31,6 +31,19 @@
 
   <div class="plot-details">
       <div id="show-flexbox" class="flexbox">
+        <div class="right-elements">
+          <div class="plot-book">
+            <h3>Book it now!</h3>
+              <div id="total_price" data-dailyprice="<%= @plot.daily_price %>">
+               </div>
+            <div class="linked_pickers">
+              <div class="form">
+                <%= render 'plots/flatpickr', plot: @plot, booking: @booking %>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div class="left-elements">
           <div class="plot-location">
             <h3> A bit more about this plot ...</h3>
@@ -38,11 +51,13 @@
               <p><i class="fa fa-map-marker" aria-hidden="true"></i> This plot is located at <%= @plot.location %></p>
                <p><i class="fa fa-paw" aria-hidden="true"></i> It can accomodate <%= @plot.capacity %> animals of any kind </p>
                <p><i class="fa fa-user" aria-hidden="true"></i> His owner is <%= @plot.user.first_name %> <%= @plot.user.last_name %></p>
-              <div class="avatar-show"><% if @plot.user.photo %>
-                              <%= image_tag "avatar_#{@plot.user.photo}.jpg", class:"avatar-show"%>
-                            <% else %>
-                              <%= image_tag "default-user.jpg", class:"avatar-show" %>
-                            <% end %></div>
+              <div class="avatar-show">
+                <% if @plot.user.photo %>
+                    <%= image_tag "avatar_#{@plot.user.photo}.jpg", class:"avatar-show"%>
+                  <% else %>
+                    <%= image_tag "default-user.jpg", class:"avatar-show" %>
+                  <% end %>
+                </div>
             </div>
             <div class="plot-info">
               <div class="details">
@@ -50,23 +65,22 @@
               </div>
             </div>
           </div>
+
+          <% if @plot.reviews.first %>
+            <div class="plot-reviews">
+              <h3>Here's what they think...</h3>
+              <% @plot.reviews.each do |review| %>
+                <p><% review.rating.times do %><i class="fa fa-star" aria-hidden="true"></i>
+                  <% end %> <em>"<%= review.content %>"</em></p>
+              <% end %>
+            </div>
+          <% end %>
+
           <div class="plot-description">
             <h3>Where can i find the plot?</h3>
             <div id="map" style="height: 250px"
               data-markers="<%= [{lat: @plot.latitude, lng: @plot.longitude}].to_json %>"
               class="map-show">
-            </div>
-          </div>
-        </div>
-        <div class="right-elements">
-          <div class="plot-book">
-            <h3>Book it now!</h3>
-              <div id="total_price" data-dailyprice="<%= @plot.daily_price %>"> Total price : 150
-               </div>
-            <div class="linked_pickers">
-              <div class="form">
-                <%= render 'plots/flatpickr', plot: @plot, booking: @booking %>
-              </div>
             </div>
           </div>
         </div>

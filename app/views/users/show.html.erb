@@ -19,7 +19,7 @@
         <div class="tabs">
           <%= link_to "My bookings", "#bookings-list", class: "tab active" %>
           <%= link_to "My plots (#{@user.plots.count})", "#plots-list", class: "tab" %>
-          <%= link_to "My requests", "#requests-list", class: "tab" %>
+          <%= link_to "My requests (#{@user.bookings_as_owner.count{ |x| x.status= "pending" }} pending)", "#requests-list", class: "tab" %>
         </div>
 
         <div id="bookings-list" class="tabcontent">
@@ -31,6 +31,12 @@
                 <%= render 'shared/list-bookings', booking: booking %>
                 <% if booking.review.nil? %>
                   <%= render 'shared/review', booking: booking, review: @review %>
+
+                  <!-- AJOUTER LA REVIEW SI DEJA REMPLIE -->
+                  <% else %>
+                    <p>My review: <% booking.review.rating.times do %><i class="fa fa-star" aria-hidden="true"></i>
+                      <% end %> <em>"<%= booking.review.content %>"</em></p>
+
                 <% end %>
               <% end %>
             <% end %>
