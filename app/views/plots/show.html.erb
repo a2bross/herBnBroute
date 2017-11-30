@@ -72,6 +72,9 @@
               <% @plot.reviews.each do |review| %>
                 <p><% review.rating.times do %><i class="fa fa-star" aria-hidden="true"></i>
                   <% end %> <em>"<%= review.content %>"</em></p>
+                <% unless review == @plot.reviews.last %>
+                  <hr>
+                <% end %>
               <% end %>
             </div>
           <% end %>
