@@ -1,29 +1,23 @@
 <li class="listed-bookings">
-  <% if booking.plot.photo.present? %>
-    <div class="item-picture" style="background-image: url('<%= cl_image_path booking.plot.photo %>')"></div>
-  <% else %>
-    <div class="item-picture" style="background-image: url('<%= image_path "default-plot-picture-thumbnail.jpg" %>')"></div>
+  <%= link_to plot_path(booking.plot) do %>
+  <div class="booking-picture text-center">
+    <% if booking.plot.photo.present? %>
+      <div class="item-picture" style="background-image: url('<%= cl_image_path booking.plot.photo %>')"></div>
+    <% else %>
+      <div class="item-picture" style="background-image: url('<%= image_path "default-plot-picture-thumbnail.jpg" %>')"></div>
+    <% end %>
+      <p><%= booking.plot.name %></p>
+  </div>
   <% end %>
 
   <div class="booking-details">
-    <h3><%= booking.plot.name %></h3>
-    <p><%= booking.plot.location %></p>
-    <p>
-      <i class="fa fa-paw" aria-hidden="true"></i> <%= booking.plot.capacity %>
-    </p>
+    <h3><%= booking.start_date.strftime("%b %d, %Y")%> to <%= booking.end_date.strftime("%b %d, %Y")%></h3>
+    <p>Owner: <%= booking.plot.user.first_name %> <%= booking.plot.user.last_name %></p>
+    <p><i class="fa fa-map-marker" aria-hidden="true"></i> <%= booking.plot.location %></p>
   </div>
 
   <div class="booking-price">
-    <p id="price-show"><%= booking.plot.daily_price %> € / day</p>
-    <p id="booking-status">Status: <%= booking.status %></p>
+    <p id="booking-status"><%= booking.status.capitalize %></p>
+    <p>Price: <%= booking.full_price %>€</p>
   </div>
-
-  <% if booking.plot.user == current_user && booking.status= "pending" %>
-    <div class="accepted">
-      <%= link_to "Accept", accept_booking_path(booking), method: :patch, class: "btn" %>
-    </div>
-    <div class="declined">
-      <%= link_to "Decline", decline_booking_path(booking), method: :patch, class: "btn" %>
-    </div>
-  <% end %>
 </li>
