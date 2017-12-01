@@ -3,8 +3,9 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.booking = Booking.find(params[:booking_id])
     authorize @review
+    @user = current_user
     if @review.save
-      redirect_to user_path(current_user)
+      redirect_to user_path(@user)
     else
       render 'users/show'
     end
