@@ -15,15 +15,15 @@
 
   <div class="booking-price">
     <p id="price-show"><%= booking.plot.daily_price %> € / day</p>
-    <div>
-    status :
-    </div>
+    <p id="booking-status">Status: <%= booking.status %></p>
   </div>
 
-  <div class="accepted">
-    <%= link_to "Accept", accept_booking_path(booking), method: :patch, class: "btn" %>
-  </div>
-  <div class="declined">
-    <%= link_to "Decline", decline_booking_path(booking), method: :patch, class: "btn" %>
-  </div>
+  <% if booking.plot.user == current_user && booking.status= "pending" %>
+    <div class="accepted">
+      <%= link_to "Accept", accept_booking_path(booking), method: :patch, class: "btn" %>
+    </div>
+    <div class="declined">
+      <%= link_to "Decline", decline_booking_path(booking), method: :patch, class: "btn" %>
+    </div>
+  <% end %>
 </li>
