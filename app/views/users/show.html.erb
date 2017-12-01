@@ -32,13 +32,13 @@
             <% if @user.bookings.first %>
               <% @user.bookings.each do |booking| %>
                 <%= render 'shared/list-bookings', booking: booking %>
-                <% if booking.review.nil? %>
+                <% if booking.review.nil? && (booking.status == "accepted" || booking.status == "completed") %>
                   <%= render 'shared/review-form', booking: booking, review: @review %>
                   <% else %>
-                    <div class="review-container">
+                    <div class="review-container hidden">
                       <p>My review: <p>
-                      <p><% booking.review.rating.times do %><i class="fa fa-star" aria-hidden="true"></i>
-                        <% end %> <em>"<%= booking.review.content %>"</em></p>
+                      <p><% @review.rating.to_i.times do %><i class="fa fa-star" aria-hidden="true"></i>
+                        <% end %> <em>"<%= @review.content %>"</em></p>
                     </div>
                 <% end %>
               <% end %>
