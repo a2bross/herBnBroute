@@ -3,3 +3,8 @@
 // @import "dashboard";
 // @import "profile";
 // @import "map";
+
+.global-container {
+    min-height: calc(100vh - 140px);
+    margin-bottom: 50px;
+}
