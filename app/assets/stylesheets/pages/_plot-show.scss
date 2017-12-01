@@ -27,6 +27,10 @@
 }
 
 .review-user{
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+  margin-top: -20px;
   span {
     margin-right: 10px;
     font-weight: bold;
