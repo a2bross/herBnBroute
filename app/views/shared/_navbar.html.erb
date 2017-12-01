@@ -4,7 +4,7 @@
     <%= image_tag "logo.png" %> <span class="navbar-title">HerB'<span>nBroute</span></span>
   <% end %>
 
-  <% unless current_page?(root_path) %>
+  <% unless current_page?(root_path) || current_page?(new_plot_path) %>
     <div class="search-nav">
       <%= form_tag plots_path, method: :get, class: "form-inline" do %>
         <%= text_field_tag :location,
