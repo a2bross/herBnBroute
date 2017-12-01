@@ -1,9 +1,9 @@
 <div class="index-container">
     <div class="cards-container">
       <% if params[:location] && @nearby_plots.first %>
-        <h4>Results for <%= params[:location].capitalize %>:</h4>
+        <h4>Results for <%= params[:location].upcase %>:</h4>
       <% elsif params[:location] %>
-        <h4>No result for  <%= params[:location].capitalize %>, here are all our plots:</h4>
+        <h4>No result for  <%= params[:location].upcase %>, here are all our plots:</h4>
       <% else %>
         <h2>Make your choice !</h2>
       <% end %>

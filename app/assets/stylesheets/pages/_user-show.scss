@@ -1,6 +1,10 @@
+body {
+  margin-top: 70px;
+}
+
 .user-details {
   margin: 30px 10%;
-  padding-top: 70px;
+
 }
 
 .user-info, .plots-list, .tabcontent {
@@ -18,7 +22,6 @@
 }
 
 .show-header {
-  border-bottom: 1px solid #EFEFEF;
   display:flex;
   justify-content: space-between;
   align-items: center;
@@ -118,7 +121,7 @@ ul {
 }
 
 .tabs {
-  margin-bottom: 4px;
+  margin-bottom: 2px;
   .tab:first-child {
     border-top-left-radius: 4px;
   }

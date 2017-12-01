@@ -1,6 +1,6 @@
 .show-container {
   background-color: #F4F4F4;
-  padding-top: 70px;
+
   font-family: 'Varela Round', sans-serif;
 }
 
@@ -213,4 +213,10 @@
   .right-elements {
     position: initial;
   }
+}
+
+.accept-decline{
+  display: flex;
+  justify-content: center;
+  padding-bottom: 10px;
 }

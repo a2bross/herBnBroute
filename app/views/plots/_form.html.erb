@@ -1,9 +1,11 @@
 <%= simple_form_for(@plot) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :description %>
+  <%= f.input :name, autofocus: true, placeholder: "Name your plot (e.g \"Le Pre Vert\")" %>
   <%= f.input :location %>
-  <%= f.input :capacity %>
-  <%= f.input :daily_price %>
+  <%= f.input :description, placeholder: "Describe your plot (type of grass, number of trees, etc.)" %>
+  <div class="multi-col-row">
+    <%= f.input :capacity, placeholder: "1" %>
+    <%= f.input :daily_price, placeholder: "10" %>
+  </div>
   <%= f.input :photo %>
   <%= f.input :photo_cache, as: :hidden %>
   <%= f.submit class: "btn btn-primary btn-block"%>
