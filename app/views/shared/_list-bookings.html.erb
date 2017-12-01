@@ -18,7 +18,7 @@
     <p id="booking-status">Status: <%= booking.status %></p>
   </div>
 
-  <% if booking.plot.user == current_user && booking.status= "pending" %>
+  <% if booking.plot.user == current_user %>
     <div class="accepted">
       <%= link_to "Accept", accept_booking_path(booking), method: :patch, class: "btn" %>
     </div>
