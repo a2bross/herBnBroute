@@ -20,6 +20,23 @@
   color:white;
 }
 
+.reviews-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.review-user{
+  span {
+    margin-right: 10px;
+    font-weight: bold;
+    font-size: 12px;
+  }
+}
+
+.plot-show-comment {
+}
+
 .edit-plot-show a {
   position: absolute;
   background-color: white;
