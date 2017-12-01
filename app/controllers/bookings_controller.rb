@@ -15,6 +15,10 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     authorize @booking
     @booking.plot_id = @plot.id
+    @markers = []
+    if @plot.latitude && @plot.longitude
+      @markers << { lat: @plot.latitude, lng: @plot.longitude }
+    end
     @booking.user_id = current_user.id
     if params[:booking][:end_date].present? && params[:booking][:start_date].present?
       duration = Date.parse(params[:booking][:end_date]) - Date.parse(params[:booking][:start_date]) + 1
