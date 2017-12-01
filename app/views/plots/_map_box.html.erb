@@ -1,5 +1,5 @@
 <div class="map_box_info">
-  <p><strong><%= plot.name %></strong></p>
+  <%= link_to plot.name, plot_path(plot) %>
   <p><%= plot.daily_price %>€ per day</p>
   <p><i class="fa fa-paw" aria-hidden="true"></i> <%= "#{plot.capacity}" %></p>
 </div>
