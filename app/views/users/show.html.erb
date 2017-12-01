@@ -19,8 +19,8 @@
         <div class="tabs">
           <%= link_to "My bookings (#{@user.bookings.count})", "#bookings-list", class: "tab active" %>
           <% if @user.plots.first %>
+            <%= link_to "My requests (#{@user.bookings_as_owner.count{ |x| x.status == "pending" }} pending)", "#requests-list", class: "tab" %>
             <%= link_to "My plots (#{@user.plots.count})", "#plots-list", class: "tab" %>
-            <%= link_to "My requests (#{@user.bookings_as_owner.count{ |x| x.status= "pending" }} pending)", "#requests-list", class: "tab" %>
           <% end %>
         </div>
 
@@ -33,15 +33,17 @@
               <% @user.bookings.each do |booking| %>
                 <%= render 'shared/list-bookings', booking: booking %>
                 <% if booking.review.nil? %>
-                  <%= render 'shared/review', booking: booking, review: @review %>
-
-                  <!-- AJOUTER LA REVIEW SI DEJA REMPLIE -->
+                  <%= render 'shared/review-form', booking: booking, review: @review %>
                   <% else %>
-                    <p>My review: <% booking.review.rating.times do %><i class="fa fa-star" aria-hidden="true"></i>
-                      <% end %> <em>"<%= booking.review.content %>"</em></p>
-
+                    <div class="review-container">
+                      <p>My review: <p>
+                      <p><% booking.review.rating.times do %><i class="fa fa-star" aria-hidden="true"></i>
+                        <% end %> <em>"<%= booking.review.content %>"</em></p>
+                    </div>
                 <% end %>
               <% end %>
+            <% else %>
+              <p class="no-plot">No booking yet!</p>
             <% end %>
           </ul>
         </div>
@@ -70,11 +72,20 @@
           </div>
           <ul>
             <% if @user.bookings_as_owner.first %>
-              <% @user.bookings_as_owner.each do |booking| %>
-                <%= render 'shared/list-bookings', booking: booking %>
+              <% @user.bookings_as_owner.select{ |x| x.status == "pending" }.each do |booking| %>
+                <%= render 'shared/list-request', booking: booking %>
+                <% if booking.plot.user == current_user %>
+                  <div class="accept-decline">
+                    <%= link_to "Accept", accept_booking_path(booking), method: :patch, class: "btn accept" %>
+                    <%= link_to "Decline", decline_booking_path(booking), method: :patch, class: "btn decline" %>
+                  </div>
+                <% end %>
+              <% end %>
+              <% @user.bookings_as_owner.select{ |x| x.status != "pending" }.each do |booking| %>
+                <%= render 'shared/list-request', booking: booking %>
               <% end %>
             <% else %>
-              <p class="no-plot">No booking yet!</p>
+              <p class="no-plot">No request yet!</p>
             <% end %>
           </ul>
         </div>

@@ -1,0 +1,23 @@
+<li class="listed-request">
+  <div class="text-center">
+    <% if booking.user.photo.present? %>
+      <div class="user-picture" style="background-image: url('<%= cl_image_path booking.user.photo %>')"></div>
+    <% else %>
+      <div class="user-picture" style="background-image: url('<%= image_path "default-user.jpg" %>')"></div>
+    <% end %>
+      <p><%= booking.user.first_name %> <%= booking.user.last_name %></p>
+  </div>
+
+  <div class="booking-details">
+    <h3><%= booking.start_date.strftime("%b %d, %Y")%> to <%= booking.end_date.strftime("%b %d, %Y")%></h3>
+    <%= link_to user_path(booking.plot.user) do %>
+      Plot: <%= booking.plot.name %>
+    <% end %>
+    <p><i class="fa fa-map-marker" aria-hidden="true"></i> <%= booking.plot.location %></p>
+  </div>
+
+  <div class="request-price">
+    <p>Price: <%= booking.full_price %>€</p>
+    <p id="booking-status"><%= booking.status.capitalize %></p>
+  </div>
+</li>

@@ -18,3 +18,29 @@
   border: 0px;
 }
 
+.accept, .decline {
+  border-radius: 5px;
+  color: white;
+  margin: 0px 5px;
+  padding: 6px 30px;
+  transition: 0.5s background-color ease;
+  &:hover {
+    background-color: white;
+  }
+}
+
+.decline {
+  background-color: $red;
+  border: 1px solid $red;
+  &:hover {
+    color: $red
+  }
+}
+
+.accept {
+  background-color: $yellow;
+  border: 1px solid $yellow;
+  &:hover {
+    color: $yellow;
+  }
+}

@@ -1,0 +1,23 @@
+.listed-request {
+  display:flex;
+  position: relative;
+  justify-content: space-between;
+  margin-top: 0px;
+  padding: 0px 20px;
+  padding-top:30px;
+  border-top: 1px solid #EFEFEF;
+  .listed-request:first-child {
+    border-top: 0px;
+  }
+}
+
+.request-price {
+  width: 100px;
+  opacity: 1;
+  font-size: 14px;
+  text-align:right;
+  p:first-child {
+    font-size: 18px;
+    font-weight: bold;
+  }
+}
