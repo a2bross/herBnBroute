@@ -1,7 +1,10 @@
 <li class="listed-request">
   <div class="text-center">
     <% if booking.user.photo.present? %>
-      <div class="user-picture" style="background-image: url('<%= image_tag "avatar_#{booking.user.photo}.jpg" %>')></div>
+      <div class="user-picture"
+      style="background-image: url('<%= image_path "avatar_#{booking.user.photo}.jpg" %>')">
+
+      </div>
     <% else %>
       <div class="user-picture" style="background-image: url('<%= image_path "default-user.jpg" %>')"></div>
     <% end %>

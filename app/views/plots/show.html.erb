@@ -75,7 +75,6 @@
                     <% end %> <em>"<%= review.content %>"</em></p>
                     <div class="review-user">
                       <span><%= review.booking.user.first_name.capitalize %></span>
-                      <%= image_tag "avatar_#{review.booking.user.photo}.jpg", class: "avatar" %>
                     </div>
                 </div>
                 <% unless review == @plot.reviews.last %>
