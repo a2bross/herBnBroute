@@ -55,6 +55,12 @@
   span {
     color: $gray;
   }
+  &:hover {
+    color: $gray;
+    span {
+      color: $green;
+    }
+  }
 }
 
 /* User Avatar */
