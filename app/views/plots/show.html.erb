@@ -53,9 +53,9 @@
                <p><i class="fa fa-user" aria-hidden="true"></i> His owner is <%= @plot.user.first_name %> <%= @plot.user.last_name %></p>
               <div class="avatar-show">
                 <% if @plot.user.photo %>
-                    <%= image_tag "avatar_#{@plot.user.photo}.jpg", class:"avatar-show"%>
+                    <%= image_tag "avatar_#{@plot.user.photo}.jpg", class:"avatar"%>
                   <% else %>
-                    <%= image_tag "default-user.jpg", class:"avatar-show" %>
+                    <%= image_tag "default-user.jpg", class:"avatar" %>
                   <% end %>
                 </div>
             </div>

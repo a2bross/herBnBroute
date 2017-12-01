@@ -12,12 +12,37 @@
   top: 0;
   width: 100%;
   z-index: 2;
+  position: absolute;
    a:hover {
     text-decoration: none;
-
   }
 }
+.search-nav {
+  // height: 36px;
+  // width: 270px;
+  right: 180px;
+  position: relative;
+}
 
+.nav-form-control {
+   right: 300px;
+   font-size: 15px;
+   width: 250px;
+   border-radius: 5%;
+}
+
+#nav-plot-location {
+  // width: 280px;
+    height: 36px;
+}
+
+.btn {
+  font-size: 15px;
+  border-radius: 5%;
+  border: 1px solid gray;
+  background-color: #5F8F30;
+  color: white;
+}
 /* Logo */
 .navbar-wagon-brand img {
   height: 50px;
