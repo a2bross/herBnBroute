@@ -4,17 +4,18 @@
     <%= image_tag "logo.png" %> <span class="navbar-title">HerB'<span>nBroute</span></span>
   <% end %>
 
-  <div class="search-nav">
-    <%= form_tag plots_path, method: :get do %>
-      <%= text_field_tag :location,
-        params[:location],
-        class: "nav-form-control",
-        id: "nav-plot-location",
-        placeholder: "Where do you want to graze?"  %>
-      <%= submit_tag "Search", class: "btn" %>
-      <% end %>
-
-  </div>
+  <% unless current_page?(root_path) %>
+    <div class="search-nav">
+      <%= form_tag plots_path, method: :get, class: "form-inline" do %>
+        <%= text_field_tag :location,
+          params[:location],
+          class: "form-control nav-form-control",
+          id: "plot_location",
+          placeholder: "Where do you want to graze?"  %>
+        <%= submit_tag "Search", class: "btn btn-primary button-navbar" %>
+        <% end %>
+    </div>
+  <% end %>
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">

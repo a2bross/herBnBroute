@@ -27,21 +27,21 @@
 .nav-form-control {
    right: 300px;
    font-size: 15px;
-   width: 250px;
+   width: 250px !important;
    border-radius: 5%;
 }
 
-#nav-plot-location {
-  // width: 280px;
-    height: 36px;
-}
+// #nav-plot-location {
+//   // width: 280px;
+//     height: 36px;
+// }
 
-.btn {
+.button-navbar {
   font-size: 15px;
-  border-radius: 5%;
-  border: 1px solid gray;
-  background-color: #5F8F30;
-  color: white;
+  padding: 7px 10px;
+  border-radius: 5px;
+  border: 1px solid $green;
+  background-color: $green;
 }
 /* Logo */
 .navbar-wagon-brand img {
