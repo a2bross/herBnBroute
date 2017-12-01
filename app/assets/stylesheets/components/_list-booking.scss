@@ -6,6 +6,9 @@
   padding: 20px;
   border-bottom: 1px solid #EFEFEF;
   margin-bottom: 10px;
+  .listed-bookings:last-child {
+    border-bottom: 0px;
+  }
 }
 
 .booking-details {
