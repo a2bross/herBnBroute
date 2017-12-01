@@ -17,11 +17,14 @@
     text-decoration: none;
   }
 }
+
 .search-nav {
-  // height: 36px;
-  // width: 270px;
-  right: 180px;
-  position: relative;
+  margin-left: 20px;
+}
+
+.navbar-wagon-left{
+  display: flex;
+  align-items: center;
 }
 
 .nav-form-control {
