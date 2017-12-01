@@ -1,7 +1,7 @@
 <%= simple_form_for(@plot) do |f| %>
-  <%= f.input :name, autofocus: true, placeholder: "name your plot (e.g \"Le Pre Vert\")" %>
+  <%= f.input :name, autofocus: true, placeholder: "Name your plot (e.g \"Le Pre Vert\")" %>
   <%= f.input :location %>
-  <%= f.input :description, placeholder: "describe your plot (type of grass, number of trees, etc.)" %>
+  <%= f.input :description, placeholder: "Describe your plot (type of grass, number of trees, etc.)" %>
   <div class="multi-col-row">
     <%= f.input :capacity, placeholder: "1" %>
     <%= f.input :daily_price, placeholder: "10" %>
